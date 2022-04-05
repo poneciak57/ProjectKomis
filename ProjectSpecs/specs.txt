@@ -1,0 +1,21 @@
+Komis:
+-wyswietlanie aktualnej oferty (auta)
+-dodawania ofert
+Musi zawierac:
+-sortowanie i wyswietlanie wg kryteriow
+	-marka model
+	-cena --przedzial
+	-po roku produkcji --przedzial
+	-przebieg
+	-moc silnik --optional
+	-paliwo typ
+	-rodzaj skrzyni
+	-kraj pochodzenia
+	-kolor
+	-stan techniczny(uszkodzony nie uszkodzony)
+	-wypadkowy czy bezwypadkowy
+	-zdjecie --optional
+Database:
+-Tabela kolory
+-Tabela modele marki
+-Itd
