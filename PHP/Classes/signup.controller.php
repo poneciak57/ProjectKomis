@@ -16,11 +16,11 @@ class SignupController extends Signup
     public function signupUser(): void
     {
         if ($this->IsLoginCorrect()) {
-            header("location: ../index.php?error=IncorectInput");
+            header("location: ../../index.php?error=IncorectInput");
             exit();
         }
         if ($this->IfUserExists($this->login)) {
-            header("location: ../index.php?error=UserExists");
+            header("location: ../../index.php?error=UserExists");
             exit();
         }
         $this->setUser($this->login, $this->password);

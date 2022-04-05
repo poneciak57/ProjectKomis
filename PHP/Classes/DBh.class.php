@@ -18,8 +18,8 @@ class DBh
         $dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
         try {
             $conn = new PDO($dsn, $this->user, $this->pass, $this->options);
-        } catch (\PDOException $e) {
-            header("location: ../index.php?error=ConnectionError");
+        } catch (PDOException) {
+            header("location: ../../index.php?error=ConnectionError");
         }
         return $conn;
     }

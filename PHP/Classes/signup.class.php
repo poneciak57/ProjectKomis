@@ -11,7 +11,7 @@ class Signup extends Dbh
 
         if (!$stmt->execute([$login, $password])) {
             $stmt = null;
-            header("location: ../index.php?error=StmtError");
+            header("location: ../../index.php?error=StmtError");
             exit();
         }
         $stmt = null;
@@ -21,7 +21,7 @@ class Signup extends Dbh
         $stmt = $this->connect()->prepare("SELECT ID FROM users WHERE Login = ?;");
         if (!$stmt->execute([$login])) {
             $stmt = null;
-            header("location: ../index.php?error=StmtError");
+            header("location: ../../index.php?error=StmtError");
             exit();
         }
 
