@@ -7,3 +7,4 @@ session_destroy();
 
 //going back to front page
 header("location: ../../index.php");
+
