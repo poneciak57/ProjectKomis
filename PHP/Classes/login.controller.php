@@ -20,5 +20,6 @@ class LoginController extends Login
         echo var_dump($User);
         session_start();
         $_SESSION["User"] = serialize($User);
+        $_SESSION['timestamp'] = time();
     }
 }
