@@ -46,6 +46,13 @@
 > Opcja Kupna przez klienta </br>
 > Opcja rezerwacji kupna </br>
 > Opcja derezerwacji </br>
+> Statystyki:
+> - rejestracje
+> - odwiedziny
+> - ocena
+> - zakupione
+> </br>
+>
 > Dodawanie ofert przez klientow:
 > - oczekujace oferty na dodanie
 > - twoje oferty
