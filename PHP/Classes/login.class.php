@@ -1,7 +1,6 @@
 <!-- requier DBh.class.php -->
 <!-- requier user.struct.php -->
 <?php
-require_once "../Structs/user.struct.php";
 class Login extends DBh
 {
     protected function getUser($login, $password): User|false
