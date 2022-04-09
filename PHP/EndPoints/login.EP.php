@@ -1,8 +1,8 @@
 <?php
-if (isset($_POST['submit'])) {
+if (isset($_GET['submit'])) {
 
-    $login = $_POST['login'];
-    $password = $_POST['password'];
+    $login = $_GET['login'];
+    $password = $_GET['password'];
 
     require_once "../Structs/user.struct.php";
     require_once "../Classes/DBh.class.php";
