@@ -17,7 +17,6 @@ class LoginController extends Login
             header("location: ../../index.php?error=WrongInput");
             exit();
         }
-        echo var_dump($User);
         session_start();
         $_SESSION["User"] = serialize($User);
         $_SESSION['timestamp'] = time();
