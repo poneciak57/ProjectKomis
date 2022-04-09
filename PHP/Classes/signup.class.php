@@ -16,6 +16,16 @@ class Signup extends Dbh
         }
         $stmt = null;
     }
+    protected function setUserWithProperties($login, $password, $name, $surname, $telephone, $email): void
+    {
+        $stmt = $this->connect()->prepare("INSERT INTO `users`(`Login`, `Password`,`Imie`, `Nazwisko`, `E-mail`, `Telefon`,`ID_Uprawnien`) VALUES (?,?,?,?,?,?,2);");
+        if (!$stmt->execute([$login, $password])) {
+            $stmt = null;
+            header("location: ../../index.php?error=StmtError");
+            exit();
+        }
+        $stmt = null;
+    }
     protected function IfUserExists($login): bool
     {
         $stmt = $this->connect()->prepare("SELECT ID FROM users WHERE Login = ?;");
