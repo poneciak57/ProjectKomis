@@ -12,5 +12,5 @@ if (isset($_GET['submit'])) {
     $login = new LoginController($login, $password);
     $login->loginUser();
 
-    header("location: ../../index.php");
+    header("location: /index.php");
 }

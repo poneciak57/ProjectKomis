@@ -8,7 +8,7 @@ if (isset($_GET['login'])) {
             $stmt = $this->connect()->prepare("SELECT ID FROM users WHERE Login = ?;");
             if (!$stmt->execute([$login])) {
                 $stmt = null;
-                header("location: ../../Pages/login.page.php?error=StmtError");
+                header("location: /Pages/login.page.php?error=StmtError");
                 exit();
             }
             $response = ["IsLoginCorrect" => false];
