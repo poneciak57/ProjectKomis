@@ -11,7 +11,7 @@ class Signup extends Dbh
 
         if (!$stmt->execute([$login, $password])) {
             $stmt = null;
-            header("location: ../../index.php?error=StmtError");
+            header("location: /Pages/login.page.php?error=StmtError");
             exit();
         }
         $stmt = null;
@@ -19,9 +19,10 @@ class Signup extends Dbh
     protected function setUserWithProperties($login, $password, $name, $surname, $telephone, $email): void
     {
         $stmt = $this->connect()->prepare("INSERT INTO `users`(`Login`, `Password`,`Imie`, `Nazwisko`, `E-mail`, `Telefon`,`ID_Uprawnien`) VALUES (?,?,?,?,?,?,2);");
-        if (!$stmt->execute([$login, $password])) {
+        $password = sha1($password);
+        if (!$stmt->execute([$login, $password, $name, $surname, $telephone, $email])) {
             $stmt = null;
-            header("location: ../../index.php?error=StmtError");
+            header("location: /Pages/login.page.php?error=StmtError");
             exit();
         }
         $stmt = null;
@@ -31,7 +32,7 @@ class Signup extends Dbh
         $stmt = $this->connect()->prepare("SELECT ID FROM users WHERE Login = ?;");
         if (!$stmt->execute([$login])) {
             $stmt = null;
-            header("location: ../../index.php?error=StmtError");
+            header("location: /Pages/login.page.php?error=StmtError");
             exit();
         }
 

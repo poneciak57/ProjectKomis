@@ -16,34 +16,35 @@ class SignupController extends Signup
         $this->login = $login;
         $this->password = $password;
     }
+    public function addProperties($name, $surname, $telephone, $email)
+    {
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->telephone = $telephone;
+        $this->email = $email;
+    }
+
 
     public function signupUser(): void
     {
-        if ($this->IsLoginInCorrect()) {
-            header("location: ../../index.php?error=IncorectInput");
-            exit();
-        }
-        if ($this->IfUserExists($this->login)) {
-            header("location: ../../index.php?error=UserExists");
-            exit();
-        }
+        $this->IsLoginInCorrect();
         $this->setUser($this->login, $this->password);
     }
     public function signupUserWithProperties(): void
     {
-        if ($this->IsLoginInCorrect()) {
-            header("location: ../../index.php?error=IncorectInput");
-            exit();
-        }
-        if ($this->IfUserExists($this->login)) {
-            header("location: ../../index.php?error=UserExists");
-            exit();
-        }
+        $this->IsLoginInCorrect();
         $this->setUserWithProperties($this->login, $this->password, $this->name, $this->surname, $this->telephone, $this->email);
     }
 
-    private function IsLoginInCorrect(): bool
+    private function IsLoginInCorrect()
     {
-        return (empty($this->login));
+        if (empty($this->login)) {
+            header("location: /Pages/login.page.php?error=Incorrect Input");
+            exit();
+        }
+        if ($this->IfUserExists($this->login)) {
+            header("location: /Pages/login.page.php?error=User with provided login already exists");
+            exit();
+        }
     }
 }
