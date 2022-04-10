@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET['submit'])) {
+if (isset($_GET['login'])) {
 
     $login = $_GET['login'];
     $password = $_GET['password'];
