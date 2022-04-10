@@ -14,7 +14,7 @@ class LoginController extends Login
     public function loginUser(): void
     {
         if (!($User = $this->getUser($this->login, $this->password))) {
-            header("location: /Pages/login.page.php?error=Provided%20input%20is%20incorrect");
+            header("location: /Pages/login.page.php?error=Provided input is incorrect");
             exit();
         }
         session_start();
