@@ -1,7 +1,7 @@
 <!-- requier signup.class.php -->
 <?php
 
-
+require_once "signup.class.php";
 class SignupController extends Signup
 {
     private $login;

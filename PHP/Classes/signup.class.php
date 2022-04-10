@@ -1,6 +1,7 @@
 <!-- requier DBh.class.php -->
 <?php
 
+require_once "DBh.class.php";
 class Signup extends Dbh
 {
     protected function setUser($login, $password): void

@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET['login'])) {
-    require_once "../Classes/DBh.class.php";
+    require_once "../../Classes/DBh.class.php";
     class LoginCheck extends DBh
     {
         public function __construct($login)

@@ -1,5 +1,7 @@
 <!-- requier login.controller.php -->
 <?php
+
+require_once "login.class.php";
 class LoginController extends Login
 {
     private $login;

@@ -1,11 +1,12 @@
-<!-- requier DBh.class.php -->
-<!-- requier user.struct.php -->
 <?php
+
+require_once "DBh.class.php";
+require_once "Structs/user.struct.php";
 class Login extends DBh
 {
     protected function getUser($login, $password): User|false
     {
-        $stmt = $this->connect()->prepare("SELECT ID,Login FROM users WHERE Login = ? AND Password = ?;");
+        $stmt = $this->connect()->prepare("SELECT ID FROM users WHERE Login = ? AND Password = ?;");
         $password = sha1($password);
         if (!$stmt->execute([$login, $password])) {
             $stmt = null;
@@ -18,7 +19,7 @@ class Login extends DBh
             return false;
         }
         $fetched = $fetched[0];
-        $User = new User($fetched["ID"], $fetched["Login"]);
+        $User = new User($fetched["ID"], $login, $password);
         return $User;
     }
 }

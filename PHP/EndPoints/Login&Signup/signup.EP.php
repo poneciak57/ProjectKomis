@@ -4,9 +4,7 @@ if (isset($_POST['submit'])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
 
-    require_once "../Classes/DBh.class.php";
-    require_once "../Classes/signup.class.php";
-    require_once "../Classes/signup.controller.php";
+    require_once "../../Classes/signup.controller.php";
 
     $signup = new SignupController($login, $password);
     if (isset($_POST["MoreInfo"])) {
@@ -20,5 +18,5 @@ if (isset($_POST['submit'])) {
     } else {
         $signup->signupUser();
     }
-    header("location: /PHP/EndPoints/login.EP.php?login={$login}&password={$password}");
+    header("location: login.EP.php?login={$login}&password={$password}");
 }
