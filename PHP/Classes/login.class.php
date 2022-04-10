@@ -9,7 +9,7 @@ class Login extends DBh
         $password = sha1($password);
         if (!$stmt->execute([$login, $password])) {
             $stmt = null;
-            header("location: ../../index.php?error=StmtError");
+            header("location: /Pages/login.page.php?error=StmtError");
             exit();
         }
         $fetched = $stmt->fetchAll(PDO::FETCH_ASSOC);

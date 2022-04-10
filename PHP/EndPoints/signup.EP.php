@@ -9,7 +9,16 @@ if (isset($_POST['submit'])) {
     require_once "../Classes/signup.controller.php";
 
     $signup = new SignupController($login, $password);
-    $signup->signupUser();
+    if (isset($_POST["MoreInfo"])) {
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $telephone = $_POST['telephone'];
+        $email = $_POST['email'];
 
-    header("location: ../../index.php");
+        $signup->addProperties($name, $surname, $telephone, $email);
+        $signup->signupUserWithProperties();
+    } else {
+        $signup->signupUser();
+    }
+    header("location: /PHP/EndPoints/login.EP.php?login={$login}&password={$password}");
 }

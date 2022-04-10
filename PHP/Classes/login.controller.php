@@ -14,10 +14,9 @@ class LoginController extends Login
     public function loginUser(): void
     {
         if (!($User = $this->getUser($this->login, $this->password))) {
-            header("location: ../../index.php?error=WrongInput");
+            header("location: /Pages/login.page.php?error=Provided input is incorrect");
             exit();
         }
-        echo var_dump($User);
         session_start();
         $_SESSION["User"] = serialize($User);
         $_SESSION['timestamp'] = time();
