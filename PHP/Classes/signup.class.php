@@ -18,7 +18,7 @@ class Signup extends Dbh
     }
     protected function setUserWithProperties($login, $password, $name, $surname, $telephone, $email): void
     {
-        $stmt = $this->connect()->prepare("INSERT INTO `users`(`Login`, `Password`,`Imie`, `Nazwisko`, `E-mail`, `Telefon`,`ID_Uprawnien`) VALUES (?,?,?,?,?,?,2);");
+        $stmt = $this->connect()->prepare("INSERT INTO `users`(`Login`, `Password`,`Imie`, `Nazwisko`, `Telefon`, `E-mail`,`ID_Uprawnien`) VALUES (?,?,?,?,?,?,2);");
         $password = sha1($password);
         if (!$stmt->execute([$login, $password, $name, $surname, $telephone, $email])) {
             $stmt = null;
