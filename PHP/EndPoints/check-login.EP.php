@@ -8,7 +8,7 @@ if (isset($_GET['login'])) {
             $stmt = $this->connect()->prepare("SELECT ID FROM users WHERE Login = ?;");
             if (!$stmt->execute([$login])) {
                 $stmt = null;
-                header("location: ../../index.php?error=StmtError");
+                header("location: ../../Pages/login.page.php?error=StmtError");
                 exit();
             }
             $response = ["IsLoginCorrect" => false];
@@ -19,6 +19,7 @@ if (isset($_GET['login'])) {
             $stmt = null;
 
             $json = json_encode($response);
+            header('Content-Type: application/json');
             echo $json;
         }
     }
