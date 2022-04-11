@@ -22,4 +22,16 @@ class Login extends DBh
         $User = new User($fetched["ID"], $login, $password);
         return $User;
     }
+    protected function checkLogin($login): bool
+    {
+        $stmt = $this->connect()->prepare("SELECT ID FROM users WHERE Login = ?;");
+        if (!$stmt->execute([$login])) {
+            $stmt = null;
+            header("location: /Pages/login.page.php?error=StmtError");
+            exit();
+        }
+        $row_nr = $stmt->rowCount();
+        $stmt = null;
+        return $row_nr > 0;
+    }
 }
