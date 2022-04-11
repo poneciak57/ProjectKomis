@@ -19,7 +19,7 @@ class DBh
         try {
             $conn = new PDO($dsn, $this->user, $this->pass, $this->options);
         } catch (PDOException) {
-            header("location: ../../index.php?error=ConnectionError");
+            header("location: /index.php?error=ConnectionError");
         }
         return $conn;
     }
