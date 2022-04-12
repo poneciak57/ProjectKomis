@@ -5,19 +5,24 @@ class PageViews extends DBh
     public function getViews(): int
     {
         $stmt = $this->connect()->prepare("SELECT COUNT(ID) FROM odwiedziny;");
-        if (!$stmt->execute()) {
+        try {
+            $stmt->execute();
+        } catch (PDOException) {
             $stmt = null;
             header("location: index.php?error=StmtError");
             exit();
         }
-        $count = $stmt->fetchAll(PDO::FETCH_ASSOC)[0][0];
+        $count = $stmt->fetchAll(PDO::FETCH_COLUMN)[0];
         $stmt = null;
         return $count;
     }
     public function addView()
     {
         $stmt = $this->connect()->prepare("INSERT INTO odwiedziny(IP_adress) VALUES(?);");
-        $stmt->execute([$this->getIP()]);
+        try {
+            $stmt->execute([$this->getIP()]);
+        } catch (PDOException) {
+        }
         $stmt = null;
     }
 
