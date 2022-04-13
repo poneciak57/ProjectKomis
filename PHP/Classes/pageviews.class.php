@@ -4,17 +4,12 @@ class PageViews extends DBh
 {
     public function getViews(): int
     {
-        $stmt = $this->connect()->prepare("SELECT COUNT(ID) FROM odwiedziny;");
         try {
-            $stmt->execute();
+            return $this->connect()->query("SELECT COUNT(ID) FROM odwiedziny;")->fetch(PDO::FETCH_COLUMN);
         } catch (PDOException) {
-            $stmt = null;
-            header("location: index.php?error=StmtError");
+            header("location: /Pages/error.page.php?error=StmtError");
             exit();
         }
-        $count = $stmt->fetchAll(PDO::FETCH_COLUMN)[0];
-        $stmt = null;
-        return $count;
     }
     public function addView()
     {
