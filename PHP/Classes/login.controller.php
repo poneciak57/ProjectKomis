@@ -26,12 +26,8 @@ class LoginController extends Login
         }
     }
 
-    public function IsLoginCorrect(): void
+    public function IsLoginCorrect(): bool
     {
-        $ret = $this->login != null && $this->checkLogin($this->login);
-        $response = ["IsLoginCorrect" => $ret];
-        $json = json_encode($response);
-        header('Content-Type: application/json');
-        echo $json;
+        return $this->login != null && $this->checkLogin($this->login);
     }
 }
