@@ -49,6 +49,6 @@ class Statistics extends DBh
         }
         $avg = $stmt->fetchAll(PDO::FETCH_COLUMN)[0];
         $stmt = null;
-        return $avg;
+        return $avg | 0.0;
     }
 }
