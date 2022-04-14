@@ -7,8 +7,7 @@ class PageViews extends DBh
         try {
             return $this->connect()->query("SELECT COUNT(ID) FROM odwiedziny;")->fetch(PDO::FETCH_COLUMN);
         } catch (PDOException) {
-            header("location: /Pages/error.page.php?error=StmtError");
-            exit();
+            $this->error();
         }
     }
     public function addView()

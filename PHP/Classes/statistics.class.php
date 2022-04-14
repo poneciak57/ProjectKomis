@@ -14,8 +14,7 @@ class Statistics extends DBh
         try {
             return $this->connect()->query("SELECT COUNT(ID) FROM `samochody`;")->fetch(PDO::FETCH_COLUMN);
         } catch (PDOException) {
-            header("location: /Pages/error.page.php?error=StmtError");
-            exit();
+            $this->error();
         }
     }
     public function Clients(): int
@@ -23,8 +22,7 @@ class Statistics extends DBh
         try {
             return $this->connect()->query("SELECT COUNT(ID) FROM `users`;")->fetch(PDO::FETCH_COLUMN);
         } catch (PDOException) {
-            header("location: /Pages/error.page.php?error=StmtError");
-            exit();
+            $this->error();
         }
     }
     public function Ratings(): float
@@ -32,8 +30,7 @@ class Statistics extends DBh
         try {
             return $this->connect()->query("SELECT AVG(Ocena) FROM `oceny`;")->fetch(PDO::FETCH_COLUMN) | 0.0;
         } catch (PDOException) {
-            header("location: /Pages/error.page.php?error=StmtError");
-            exit();
+            $this->error();
         }
     }
 }

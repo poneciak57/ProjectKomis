@@ -8,11 +8,8 @@ class Login extends DBh
     {
         $stmt = $this->connect()->prepare("SELECT ID FROM users WHERE Login = ? AND Password = ?;");
         $password = sha1($password);
-        if (!$stmt->execute([$login, $password])) {
-            $stmt = null;
-            header("location: /Pages/login.page.php?error=StmtError");
-            exit();
-        }
+        $this->handleExec($stmt, [$login, $password]);
+
         $fetched = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt = null;
         if (empty($fetched)) {
@@ -25,11 +22,7 @@ class Login extends DBh
     protected function checkLogin($login): bool
     {
         $stmt = $this->connect()->prepare("SELECT ID FROM users WHERE Login = ?;");
-        if (!$stmt->execute([$login])) {
-            $stmt = null;
-            header("location: /Pages/login.page.php?error=StmtError");
-            exit();
-        }
+        $this->handleExec($stmt, [$login]);
         $row_nr = $stmt->rowCount();
         $stmt = null;
         return $row_nr > 0;
