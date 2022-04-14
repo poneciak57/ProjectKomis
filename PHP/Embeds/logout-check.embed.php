@@ -1,8 +1,10 @@
 <?php
 @session_start();
-if (time() - $_SESSION['timestamp'] > 600) {
-    header("Location: /PHP/EndPoints/logout.EP.php");
-    exit;
-} else {
-    $_SESSION['timestamp'] = time();
+if (isset($_SESSION['User'])) {
+    if (time() - $_SESSION['timestamp'] > 600) {
+        header("Location: /PHP/EndPoints/Login&Signup/logout.EP.php");
+        exit();
+    } else {
+        $_SESSION['timestamp'] = time();
+    }
 }

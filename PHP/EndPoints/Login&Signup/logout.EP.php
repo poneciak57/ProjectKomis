@@ -6,4 +6,4 @@ session_unset();
 session_destroy();
 
 //going back to front page
-header("location: /index.php");
+header("location: /Pages/home.page.php?message=You got loged out");
