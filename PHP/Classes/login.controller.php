@@ -20,7 +20,7 @@ class LoginController extends Login
                 exit();
             }
 
-            session_start();
+            @session_start();
             $_SESSION["User"] = serialize($User);
             $_SESSION['timestamp'] = time();
         }

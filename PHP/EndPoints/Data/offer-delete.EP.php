@@ -3,7 +3,7 @@ require_once "../../Embeds/logout-check.embed.php";
 header('Content-Type: application/json');
 $res = [];
 if (isset($_GET['ID'])) {
-    session_start();
+    @session_start();
     if (isset($_SESSION["User"])) {
         require_once "/ProjectKomis/PHP/Classes/Structs/user.struct.php";
         if (unserialize($_SESSION["User"])->Privileges == 1) {
