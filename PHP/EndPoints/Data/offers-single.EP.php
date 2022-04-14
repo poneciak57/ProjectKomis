@@ -1,12 +1,21 @@
 <?php
+require_once "../../Embeds/logout-check.embed.php";
+header('Content-Type: application/json');
+$res = [];
 if (isset($_GET['ID'])) {
-    require_once "../../Classes/offers.controller.php";
+    session_start();
+    if (isset($_SESSION["User"])) {
+        require_once "../../Classes/offers.controller.php";
 
-    $request = ["ID" => $_GET['ID']];
-    $OC = new OffersController($request);
-    $single = $OC->getSingle($_GET['ID']);
+        $request = ["ID" => $_GET['ID']];
+        $OC = new OffersController($request);
+        $res = $OC->getSingle($_GET['ID']);
 
-    header('Content-Type: application/json');
-    $json = json_encode($single);
-    echo $json;
+        $res["error"] = "none";
+    } else {
+        $res["error"] = "U are not loged in";
+    }
+} else {
+    $res["error"] = "Bad request";
 }
+echo json_encode($res);
