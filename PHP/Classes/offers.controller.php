@@ -31,9 +31,10 @@ class OffersController extends Offers
     // {
     // }
 
-    // public function deleteOffer(int $ID)
-    // {
-    // }
+    public function deleteOffer()
+    {
+        $this->delete($this->request["ID"]);
+    }
 
     // public function updateOffer(int $ID)
     // {

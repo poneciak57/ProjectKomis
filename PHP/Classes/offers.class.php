@@ -32,9 +32,12 @@ class Offers extends DBh
     // {
     // }
 
-    // protected function Delete(int $ID)
-    // {
-    // }
+    protected function Delete(int $ID): void
+    {
+        $stmt = $this->connect()->prepare("DELETE FROM `samochody` WHERE `ID` = ?;");
+        $this->handleExec($stmt, [$ID]);
+        $stmt = null;
+    }
 
     // protected function Update(int $ID)
     // {
