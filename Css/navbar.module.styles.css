@@ -1,0 +1,6 @@
+@import "variables.styles.css";
+
+#main-navbar {
+    width: 100%;
+    height: 5vh;
+}
