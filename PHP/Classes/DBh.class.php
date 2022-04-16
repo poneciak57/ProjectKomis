@@ -19,8 +19,24 @@ class DBh
         try {
             $conn = new PDO($dsn, $this->user, $this->pass, $this->options);
         } catch (PDOException) {
-            header("location: /index.php?error=ConnectionError");
+            header("location: /Pages/error.page.php?error=ConnectionError");
         }
         return $conn;
+    }
+
+    protected function error()
+    {
+        header("location: /Pages/error.page.php?error=StmtError");
+        exit();
+    }
+    protected function handleExec(PDOStatement &$stmt, array $args)
+    {
+        try {
+            $stmt->execute($args);
+        } catch (PDOException) {
+            $stmt = null;
+            header("location: /Pages/error.page.php?error=StmtError");
+            exit();
+        }
     }
 }

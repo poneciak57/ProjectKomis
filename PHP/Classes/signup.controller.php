@@ -39,11 +39,11 @@ class SignupController extends Signup
     private function IsLoginInCorrect()
     {
         if (empty($this->login)) {
-            header("location: /Pages/login.page.php?error=Incorrect Input");
+            header("location: /Pages/signup.page.php?error=Incorrect Input");
             exit();
         }
         if ($this->IfUserExists($this->login)) {
-            header("location: /Pages/login.page.php?error=User with provided login already exists");
+            header("location: /Pages/signup.page.php?error=User with provided login already exists");
             exit();
         }
     }
