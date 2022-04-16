@@ -31,6 +31,13 @@
     margin-right: 0.8vw;
 }
 
+#navbar-pages {
+    display: flex;
+    justify-content: space-between;
+    width: 18vw;
+    margin-right: var(--distance-from-border);
+}
+
 #navbar-favorites {
     display: flex;
     align-items: center;
@@ -40,4 +47,22 @@
     width: 1.5vw;
     height: 1.5vw;
     margin-right: 0.4vw;
+}
+
+#navbar-myprofile {
+    display: flex;
+    align-items: center;
+}
+
+#navbar-myprofile-image {
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-right: 0.4vw;
+}
+
+#navbar-myprofile-arrow {
+    margin-left: 0.5vw;
+    width: 1.2vw;
+    height: 1.2vw;
+    transform: rotate(90deg);
 }
