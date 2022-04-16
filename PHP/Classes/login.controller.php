@@ -1,4 +1,3 @@
-<!-- requier login.controller.php -->
 <?php
 
 require_once "login.class.php";
@@ -20,7 +19,8 @@ class LoginController extends Login
                 header("location: /Pages/login.page.php?error=Provided input is incorrect");
                 exit();
             }
-            session_start();
+
+            @session_start();
             $_SESSION["User"] = serialize($User);
             $_SESSION['timestamp'] = time();
         }

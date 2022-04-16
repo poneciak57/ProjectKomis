@@ -9,5 +9,5 @@ if (isset($_GET['login'])) {
     $login = new LoginController($login, $password);
     $login->loginUser();
 
-    header("location: /index.php");
+    header("location: /Pages/home.page.php");
 }

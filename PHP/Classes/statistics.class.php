@@ -11,44 +11,26 @@ class Statistics extends DBh
     }
     public function Offers(): int
     {
-        $stmt = $this->connect()->prepare("SELECT COUNT(ID) FROM `samochody`;");
         try {
-            $stmt->execute();
+            return $this->connect()->query("SELECT COUNT(ID) FROM `samochody`;")->fetch(PDO::FETCH_COLUMN);
         } catch (PDOException) {
-            $stmt = null;
-            header("location: index.php?error=StmtError");
-            exit();
+            $this->error();
         }
-        $count = $stmt->fetchAll(PDO::FETCH_COLUMN)[0];
-        $stmt = null;
-        return $count;
     }
     public function Clients(): int
     {
-        $stmt = $this->connect()->prepare("SELECT COUNT(ID) FROM `users`;");
         try {
-            $stmt->execute();
+            return $this->connect()->query("SELECT COUNT(ID) FROM `users`;")->fetch(PDO::FETCH_COLUMN);
         } catch (PDOException) {
-            $stmt = null;
-            header("location: index.php?error=StmtError");
-            exit();
+            $this->error();
         }
-        $count = $stmt->fetchAll(PDO::FETCH_COLUMN)[0];
-        $stmt = null;
-        return $count;
     }
     public function Ratings(): float
     {
-        $stmt = $this->connect()->prepare("SELECT AVG(Ocena) FROM `oceny`;");
         try {
-            $stmt->execute();
+            return $this->connect()->query("SELECT AVG(Ocena) FROM `oceny`;")->fetch(PDO::FETCH_COLUMN) | 0.0;
         } catch (PDOException) {
-            $stmt = null;
-            header("location: index.php?error=StmtError");
-            exit();
+            $this->error();
         }
-        $avg = $stmt->fetchAll(PDO::FETCH_COLUMN)[0];
-        $stmt = null;
-        return $avg | 0.0;
     }
 }
