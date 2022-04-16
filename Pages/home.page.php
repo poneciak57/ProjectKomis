@@ -16,7 +16,7 @@ require_once "../PHP/Embeds/logout-check.embed.php";
         $User = unserialize($_SESSION["User"]);
         echo "Hello: {$User->Login}</br>";
         echo '<a href="offers.page.php">Check our offers.</a></br>';
-        echo '<form method="GET" action="../PHP/EndPoints/Login&Signup/logout.EP.php"> <input type="submit" value="submit"></form>';
+        echo '<form method="GET" action="../PHP/EndPoints/Login&Signup/logout.EP.php"> <input type="submit" value="log out"></form>';
     } else {
         echo '<a href="login.page.php">Zaloguj sie</a>';
     }
