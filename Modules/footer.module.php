@@ -1,4 +1,3 @@
-<link href="../../Css/footer.module.styles.css" rel="stylesheet">
 <footer>
     <div id="footer-grid">
         <div id="footer-logo">
@@ -12,12 +11,12 @@
         <p></p>
         <p>Zadzwoń do nas: +48 111 222 333</p>
         <a href="">Moje Konto</a>
-        <a href="../Documents/Polityki prywatności w sklepie internetowym- wzór.pdf">Polityka prywatności</a>
+        <a href="/ProjectKomis/Documents/Polityki prywatności w sklepie internetowym- wzór.pdf">Polityka prywatności</a>
         <div id="footer-finduson-images">
-            <a href="" class="footer-finduson-image"><?php include("../../Sources/instagram-icon.svg")?></a>
-            <a href="" class="footer-finduson-image"><?php include("../../Sources/github-icon.svg")?></a>
-            <a href="" class="footer-finduson-image"><?php include("../../Sources/facebook-icon.svg")?></a>
-            <a href="" class="footer-finduson-image"><?php include("../../Sources/twitter-icon.svg")?></a>
+            <a href=""><img src="/ProjectKomis/Sources/instagram-icon.svg" class="footer-finduson-image" alt="instagram icon"></a>
+            <a href=""><img src="/ProjectKomis/Sources/github-icon.svg" class="footer-finduson-image" alt="github icon"></a>
+            <a href=""><img src="/ProjectKomis/Sources/facebook-icon.svg" class="footer-finduson-image" alt="facebook icon"></a>
+            <a href=""><img src="/ProjectKomis/Sources/twitter-icon.svg" class="footer-finduson-image" alt="twitter icon"></a>
         </div>
         <p></p>
         <a href="">Kontakt</a>
