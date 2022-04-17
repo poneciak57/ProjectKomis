@@ -1,6 +1,6 @@
 <?php
 require_once "../PHP/Embeds/add-view.embed.php";
-require_once "../PHP/Embeds/logout-check.embed.php";
+require_once "../Modules/logout-check.module.php";
 ?>
 
 <head>
@@ -10,6 +10,7 @@ require_once "../PHP/Embeds/logout-check.embed.php";
 
 <body>
     <h1>Offers Page</h1>
+    <button onclick="refresh_offers()">Refresh</button>
     <div id="offers-wrapper">
 
 
