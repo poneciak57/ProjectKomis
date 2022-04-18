@@ -66,9 +66,10 @@ footer {
     color: var(--footer-bottom-line);
     padding: 0vw 3vw;
     padding-top: 4vw;
+    font-size: var(--small-normal-font-size);
 }
 
 #footer-bottom-line > hr {
-    border-color: var(--footer-bottom-line);
+    border: 0.02vh solid var(--footer-bottom-line);
 }
 
