@@ -1,0 +1,69 @@
+@import "variables.styles.css";
+
+#offers-searchBar-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-gray);
+    height: 30vh;
+    width: 100%;
+}
+
+#offers-searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    width: 75%;
+    height: 8vh;
+    border-radius: 1vh;
+}
+
+#offers-searchBar-icon {
+    width: 5vh;
+    height: 5vh;
+    margin-left: 1vw;
+}
+
+#offers-searchBar-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    height: 8vh;
+}
+
+#offers-searchBar-searchInput {
+    font-size: var(--small-normal-font-size);
+    opacity: 0.5;
+    margin-left: 1vw;
+    border: none;
+    flex-grow: 1;
+    padding: 0;
+    height: 8vh;
+    padding-left: 3vh;
+}
+
+#offers-searchBar-searchInput:focus {
+    border: none;
+    outline: none;
+}
+
+#offers-searchBar-Search {
+    appearance: none;
+    width: 15vh;
+    height: 100%;
+    font-size: var(--normal-font-size);
+    border: 0;
+    background-color: var(--main-gradient);
+    border-radius: 1vh;
+}
+
+#offers-searchBar-Search:hover {
+    cursor: pointer;
+}
+
+#offers-searchBar-hr {
+    height: 100%;
+    border: 0.05vh solid var(--main-gray);
+}
