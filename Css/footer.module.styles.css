@@ -15,13 +15,13 @@ footer {
     align-items: center;
     padding: 0 var(--distance-from-border);
     padding-top: 3vw;
-    font-size: var(--footer-font-size);
+    font-size: var(--small-large-font-size);
 }
 
 #footer-logo {
     display: flex;
     align-items: center;
-    font-size: var(--footer-logo-font-size);
+    font-size: var(--footer-font-size);
     height: fit-content;
 }
 
@@ -33,11 +33,11 @@ footer {
 }
 
 #footer-grid > h1 {
-    font-size: var(--footer-font-size);
+    font-size: var(--small-large-font-size);
 }
 
 #footer-grid > a, #footer-grid > p {
-    font-size: var(--footer-pages-font-size);
+    font-size: var(--small-normal-font-size);
     font-weight: 500;
     text-decoration: none;
     color: white;

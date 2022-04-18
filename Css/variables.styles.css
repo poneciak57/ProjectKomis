@@ -4,14 +4,11 @@
     --distance-from-border: 5vw;
 
     /*FONT SIZES*/
-    --normal-font-size: 2.5vh;
+    
     --small-normal-font-size: 2vh;
-
-    --logo-font-size: 2vh;
-
-    --footer-font-size: 3.5vh;
-    --footer-logo-font-size: 3.5vh;
-    --footer-pages-font-size: 2vh;
+    --normal-font-size: 2.5vh;
+    --small-large-font-size: 3vh;
+    --large-font-size: 3.5vh;
 
     /*COLORS*/
     --main-gradient: rgb(112,3,151) linear-gradient(90deg, rgba(112,3,151,1) 0%, rgba(103,12,175,1) 17%, rgba(63,38,148,1) 41%, rgba(29,39,145,1) 67%, rgba(0,16,188,1) 86%, rgba(29,46,237,1) 100%);
