@@ -29,9 +29,21 @@
             </form>
         </div>
     </div>
-    <div id="offers-wrapper">
+    <div id="offers-mainblock">
+        <div id="offers-mainblock-filters">
+            <div id="offers-mainblock-filters-main">
+                <div id="offers-mainblock-filters-manage">
+                    <img src="/ProjectKomis/Sources/filter-icon.svg" alt="filter icon">
+                    Zarządzaj filtrami
+                </div>
+                <div id="offers-mainblock-filters-foundCount">Znaleźliśmy ponad 111 222 333 ogłoszeń</div>
+            </div>
+            <div id="offers-mainblock-filters-show">
 
-
+            </div>
+        </div>
+        <div id="offers-wrapper">
+        </div>
     </div>
     <?php include $rootdir."/ProjectKomis/Modules/footer.module.php"?>
 </body>

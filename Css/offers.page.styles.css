@@ -1,5 +1,7 @@
 @import "variables.styles.css";
 
+/* SEARCH BAR */
+
 #offers-searchBar-block {
     display: flex;
     align-items: center;
@@ -66,4 +68,48 @@
 #offers-searchBar-hr {
     height: 100%;
     border: 0.05vh solid var(--main-gray);
+}
+
+
+
+/* MAIN BLOCK */
+
+#offers-mainblock {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#offers-mainblock-filters {
+    display: flex;
+    width: 70%;
+}
+
+#offers-mainblock-filters-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#offers-mainblock-filters-manage {
+    display: flex;
+    align-items: center;
+    font-size: var(--normal-font-size);
+    padding: 2vh;
+}
+
+#offers-mainblock-filters-manage:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#offers-mainblock-filters-manage > img {
+    width: 5vh;
+    height: 5vh;
+    margin-right: 1vh;
+}
+
+#offers-mainblock-filters-foundCount {
+    font-size: var(--large-font-size);
 }
