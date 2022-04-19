@@ -121,3 +121,46 @@
     flex-direction: column;
     width: 70%;
 }
+
+#offers-wrapper-changepages {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.offers-wrapper-arrows {
+    width: 3vh;
+    height: 3vh;
+    margin: 0vh 4vh;
+}
+
+.offers-wrapper-arrows:hover {
+    cursor: pointer;
+}
+
+#offers-wrapper-arrowleft {
+    transform: rotate(180deg);
+}
+
+#offers-wrapper-pages {
+    font-size: var(--extra-large-font-size);
+}
+
+#offers-wrapper-pages > a {
+    margin: 0vh 1vh;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#offers-wrapper-pages > a:visited {
+    color: black;
+}
+
+#offers-wrapper-pages-current {
+    color: blueviolet;
+}
+
+#offers-wrapper-pages-current:hover {
+    cursor:auto;
+}

@@ -43,6 +43,17 @@
             </div>
         </div>
         <div id="offers-wrapper">
+            <?php include $rootdir."/ProjectKomis/Modules/car-offer.module.php"?>
+            <?php include $rootdir."/ProjectKomis/Modules/car-offer.module.php"?>
+            <div id="offers-wrapper-changepages">
+                <img src="/ProjectKomis/Sources/arrow-icon.svg" alt="arrow left" id="offers-wrapper-arrowleft" class="offers-wrapper-arrows" onclick="">
+                <div id="offers-wrapper-pages">
+                    <a id="offers-wrapper-pages-current">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                </div>
+                <img src="/ProjectKomis/Sources/arrow-icon.svg" alt="arrow right" id="offers-wrapper-arrowright" class="offers-wrapper-arrows" onclick="">
+            </div>
         </div>
     </div>
     <?php include $rootdir."/ProjectKomis/Modules/footer.module.php"?>
