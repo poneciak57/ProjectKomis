@@ -1,14 +1,10 @@
+<!DOCTYPE html>
+<html lang="pl">
 <?php
 require_once "../PHP/Embeds/add-view.embed.php";
 require_once "../Modules/logout-check.module.php";
 ?>
 
-<!DOCTYPE html>
-<html lang="pl">
-    <?php
-        require_once "../PHP/Embeds/add-view.embed.php";
-        require_once "../PHP/Embeds/logout-check.embed.php";
-    ?>
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="">
@@ -20,9 +16,9 @@ require_once "../Modules/logout-check.module.php";
 </head>
 
 <body>
-    <?php 
-        $rootdir = $_SERVER['DOCUMENT_ROOT'];
-        include $rootdir."/ProjectKomis/Modules/navbar.module.php";
+    <?php
+    $rootdir = $_SERVER['DOCUMENT_ROOT'];
+    include $rootdir . "/ProjectKomis/Modules/navbar.module.php";
     ?>
     <div id="offers-searchBar-block">
         <div id="offers-searchBar">
@@ -48,8 +44,6 @@ require_once "../Modules/logout-check.module.php";
             </div>
         </div>
         <div id="offers-wrapper">
-            <?php include $rootdir."/ProjectKomis/Modules/car-offer.module.php"?>
-            <?php include $rootdir."/ProjectKomis/Modules/car-offer.module.php"?>
             <div id="offers-wrapper-changepages">
                 <img src="/ProjectKomis/Sources/arrow-icon.svg" alt="arrow left" id="offers-wrapper-arrowleft" class="offers-wrapper-arrows" onclick="">
                 <div id="offers-wrapper-pages">
@@ -61,6 +55,7 @@ require_once "../Modules/logout-check.module.php";
             </div>
         </div>
     </div>
-    <?php include $rootdir."/ProjectKomis/Modules/footer.module.php"?>
+    <?php include $rootdir . "/ProjectKomis/Modules/footer.module.php" ?>
 </body>
+
 </html>
