@@ -3,7 +3,7 @@
 footer {
     width: 100%;
     height: 40vh;
-    background: var(--footer-background);
+    background: var(--main-darkblue);
     color: white;
 }
 
@@ -63,13 +63,13 @@ footer {
 }
 
 #footer-bottom-line {
-    color: var(--footer-bottom-line);
+    color: var(--main-darkgray);
     padding: 0vw 3vw;
     padding-top: 4vw;
     font-size: var(--small-normal-font-size);
 }
 
 #footer-bottom-line > hr {
-    border: 0.02vh solid var(--footer-bottom-line);
+    border: 0.02vh solid var(--main-darkgray);
 }
 

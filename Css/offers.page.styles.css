@@ -76,8 +76,9 @@
 
 #offers-mainblock {
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 #offers-mainblock-filters {
@@ -112,4 +113,10 @@
 
 #offers-mainblock-filters-foundCount {
     font-size: var(--large-font-size);
+}
+
+#offers-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 70%;
 }

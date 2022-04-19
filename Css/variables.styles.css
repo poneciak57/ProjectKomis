@@ -4,7 +4,7 @@
     --distance-from-border: 5vw;
 
     /*FONT SIZES*/
-    
+    --small-font-size: 1.5vh;
     --small-normal-font-size: 2vh;
     --normal-font-size: 2.5vh;
     --small-large-font-size: 3vh;
@@ -14,9 +14,8 @@
     --main-gradient: rgb(112,3,151) linear-gradient(90deg, rgba(112,3,151,1) 0%, rgba(103,12,175,1) 17%, rgba(63,38,148,1) 41%, rgba(29,39,145,1) 67%, rgba(0,16,188,1) 86%, rgba(29,46,237,1) 100%);
     --main-gray: #EDEDED;
     --main-background: #F5F5F5;
-
-    --footer-background: #141B66;
-    --footer-bottom-line: #686868;
+    --main-darkblue: #141B66;
+    --main-darkgray: #686868;
 
 }
 
