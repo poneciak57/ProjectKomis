@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--main-gray);
+    background-color: var(--main-lightgray);
     height: 30vh;
     width: 100%;
 }
@@ -67,7 +67,7 @@
 
 #offers-searchBar-hr {
     height: 100%;
-    border: 0.05vh solid var(--main-gray);
+    border: 0.05vh solid var(--main-lightgray);
 }
 
 
@@ -118,5 +118,6 @@
 #offers-wrapper {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     width: 70%;
 }
