@@ -1,0 +1,98 @@
+@import "variables.styles.css";
+
+.carOffer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.carOffer-main {
+    display: flex;
+    width: 100%;
+    height: 21vh;
+    background-color: white;
+    border-radius: 0.5vh;
+    padding: 2vh 1.5vh;
+}
+
+.carOffer-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36vh;
+    height: 21vh;
+}
+
+.carOffer-img > img, .carOffer-img > div {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.carOffer-content {
+    display: flex;
+    justify-content: space-between;
+    width: inherit;
+}
+
+.carOffer-content-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 2vh;
+    height: 100%;
+}
+
+.carOffer-content-title {
+    font-size: var(--small-large-font-size);
+    margin: 0px;
+    color: var(--main-darkblue);
+}
+
+.carOffer-content-left-top {
+    font-weight: 500;
+    margin: 0px;
+}
+
+.carOffer-content-desc1 {
+    font-size: var(--normal-font-size);
+    margin: 0px;
+}
+
+.carOffer-content-desc2 {
+    font-size: var(--small-normal-font-size);
+    font-weight: 500;
+    margin: 0px;
+}
+
+.carOffer-content-date {
+    color: var(--main-darkgray);
+    font-size: var(--small-normal-font-size);
+    margin: 0px;
+}
+
+.carOffer-content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.carOffer-content-right > img {
+    width: 4vh;
+    height: 4vh;
+}
+
+.carOffer-content-price {
+    font-size: var(--large-font-size);
+}
+
+.carOffer-line {
+    width: 100%;
+    margin: 2vh 1.5vh;
+    border: 0.02vh solid var(--main-gray);
+
+}

@@ -16,9 +16,20 @@ function fetch_offers(callback) {
 display_offers = (data) => {
     let container = document.getElementById("offers-wrapper");
     console.log(data);
-    container.innerHTML = `<h1> Number of Querries found: ${data.QuerriesFound}</h1><br>`
-    data["Offers"].forEach(offer => {
-        container.innerHTML += `<div>ID: ${offer.ID}<img src="data:image/jpeg;base64,${offer.zdjecie}"/></div>`
-    });
+    if (!data.loged_in)
+        window.location.href = "home.page.php?message=You got loged out";
+    else {
+        container.innerHTML = `<h1> Number of Querries found: ${data.QuerriesFound}</h1><br>`
+        data["Offers"].forEach(offer => {
+            container.innerHTML += `<div>ID: ${offer.ID}<img src="data:image/jpeg;base64,${offer.zdjecie}"/></div>`
+        });
+    }
 }
 fetch_offers(display_offers);
+
+
+refresh_offers = () => {
+    let container = document.getElementById("offers-wrapper");
+    container.innerHTML = "";
+    fetch_offers(display_offers);
+}
