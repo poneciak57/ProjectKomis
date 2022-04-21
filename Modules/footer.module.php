@@ -13,10 +13,10 @@
         <a href="">Moje Konto</a>
         <a href="/ProjectKomis/Documents/Polityki prywatności w sklepie internetowym- wzór.pdf">Polityka prywatności</a>
         <div id="footer-finduson-images">
-            <a href=""><img src="/ProjectKomis/Sources/instagram-icon.svg" class="footer-finduson-image" alt="instagram icon"></a>
-            <a href=""><img src="/ProjectKomis/Sources/github-icon.svg" class="footer-finduson-image" alt="github icon"></a>
-            <a href=""><img src="/ProjectKomis/Sources/facebook-icon.svg" class="footer-finduson-image" alt="facebook icon"></a>
-            <a href=""><img src="/ProjectKomis/Sources/twitter-icon.svg" class="footer-finduson-image" alt="twitter icon"></a>
+            <a href=""><img src="../Sources/instagram-icon.svg" class="footer-finduson-image" alt="instagram icon"></a>
+            <a href=""><img src="../Sources/github-icon.svg" class="footer-finduson-image" alt="github icon"></a>
+            <a href=""><img src="../Sources/facebook-icon.svg" class="footer-finduson-image" alt="facebook icon"></a>
+            <a href=""><img src="../Sources/twitter-icon.svg" class="footer-finduson-image" alt="twitter icon"></a>
         </div>
         <p></p>
         <a href="">Kontakt</a>
