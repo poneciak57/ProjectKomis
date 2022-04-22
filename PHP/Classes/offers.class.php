@@ -8,12 +8,13 @@ class Offers extends DBh
 
     public function Stack(int $stack_nr, int $offers_nr): array
     {
-        $stmt = $this->connect()->prepare("SELECT samochody.ID, marka, model, cena, typ_paliwa, skrzynia, Data_dodania, UNCOMPRESS(`zdjecie`) as zdjecie 
-        FROM samochody, marka, model, paliwo, skrzynia_biegow 
+        $stmt = $this->connect()->prepare("SELECT samochody.ID, marka, model,rok_produkcji, cena, typ_paliwa, przebieg, skrzynia, Data_dodania, UNCOMPRESS(`zdjecie`) as zdjecie 
+        FROM samochody, marka, model, paliwo, skrzynia_biegow ,rok_produkcji
         WHERE model.ID = samochody.model_id 
         AND marka.ID = model.ID_marka 
         AND paliwo.ID = samochody.paliwo_id 
-        AND skrzynia_biegow.ID = skrzynia_id 
+        AND skrzynia_biegow.ID = skrzynia_id
+        AND rok_produkcji.ID = rok_produkcji_id
         ORDER BY samochody.ID ASC LIMIT ?, ?");
 
         $this->handleExec($stmt, [($stack_nr - 1) * $offers_nr, $offers_nr]);
