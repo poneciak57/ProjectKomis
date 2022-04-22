@@ -18,7 +18,7 @@ class OffersController extends Offers
         $ret["QuerriesFound"] = $this->CountQuerries();
         $ret["Offers"] = array();
         foreach ($stack as $key => $value) {
-            $value['zdjecie'] = base64_encode($value['zdjecie']);
+            //$value['zdjecie'] = base64_encode($value['zdjecie']);
             $ret["Offers"][$key] = $value;
         }
         return $ret;
