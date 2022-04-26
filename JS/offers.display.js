@@ -37,7 +37,7 @@ display_offers = (data) => {
     document.getElementById("queries_nr").innerHTML = data.QuerriesFound;
     document.getElementById("offers-searchBar-searchInput").placeholder = "Szukaj pośród ponad " + data.QuerriesFound + " ogłoszeń";
     data["Offers"].forEach(offer => {
-        container.innerHTML += `<div class="carOffer">
+        container.innerHTML += `<div class="carOffer" value="${offer.Id}">
         <div class="carOffer-main">
             <div class="carOffer-img">
                 <img src="data:image/jpeg;base64,${offer.zdjecie}" class="image" />
@@ -77,9 +77,9 @@ change_pages = (data) => {
     if(currentPage+1 >= pagesAmount) temp = pagesAmount - 4;
     if(currentPage <= 3) temp = 1;
     for(let i = temp; i < temp+5; i++) {
-        if(i == currentPage) block += '<a id="offers-wrapper-pages-current">'+ i +'</a>';
-        else if(i > currentPage) block += '<a onclick="pageSwitch('+(i-currentPage)+')">'+ i +'</a>';
-        else block += '<a onclick="pageSwitch('+(i-currentPage)+')">'+ i +'</a>';
+        if(i == currentPage) block += `<a id="offers-wrapper-pages-current">${i}</a>`;
+        else if(i > currentPage) block += `<a onclick="pageSwitch(${i-currentPage})">${i}</a>`;
+        else block += `<a onclick="pageSwitch(${i-currentPage})">${i}</a>`;
     }
     containerNumbers.innerHTML = block;
 }
