@@ -25,6 +25,13 @@ class OffersController extends Offers
     }
     public function getSingle()
     {
+        $single = $this->Single($this->request['ID'], self::OFFER_NR);
+        $ret = array();
+        if ($single)
+            $ret["Offer"] = $single[0];
+        else
+            $ret["Offer"] = null;
+        return $ret;
     }
 
     // public function addOffer()
