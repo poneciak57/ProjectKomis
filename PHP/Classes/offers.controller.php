@@ -1,3 +1,4 @@
+
 <?php
 
 require_once "offers.class.php";
@@ -13,13 +14,13 @@ class OffersController extends Offers
 
     public function getStack()
     {
-        $stack = $this->Stack($this->request['offer_page'], self::OFFER_NR);
+        $stack = $this->Stack($this->request['specs'], $this->request['offer_page'], self::OFFER_NR);
         $ret = array();
         $ret["QuerriesFound"] = $this->CountQuerries();
-        $ret["Offers"] = array();
+        $ret = array();
         foreach ($stack as $key => $value) {
             //$value['zdjecie'] = base64_encode($value['zdjecie']);
-            $ret["Offers"][$key] = $value;
+            $ret[$key] = $value;
         }
         return $ret;
     }

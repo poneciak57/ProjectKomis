@@ -6,7 +6,7 @@ class Offers extends DBh
 {
 
 
-    public function Stack(int $stack_nr, int $offers_nr): array
+    public function Stack(array $specs, int $stack_nr, int $offers_nr): array
     {
         $stmt = $this->connect()->prepare("SELECT samochody.ID, marka, model,rok_produkcji, cena, typ_paliwa, przebieg, skrzynia, Data_dodania, UNCOMPRESS(`zdjecie`) as zdjecie 
         FROM samochody, marka, model, paliwo, skrzynia_biegow ,rok_produkcji
