@@ -127,6 +127,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding: 3vh;
 }
 
 .offers-wrapper-arrows {
@@ -141,6 +142,11 @@
 
 #offers-wrapper-arrowleft {
     transform: rotate(180deg);
+    margin-left: 0px;
+}
+
+#offers-wrapper-arrowright {
+    margin-right: 0px;
 }
 
 #offers-wrapper-pages {
@@ -151,16 +157,27 @@
     margin: 0vh 1vh;
     cursor: pointer;
     text-decoration: none;
+    color: black;
 }
 
 #offers-wrapper-pages > a:visited {
     color: black;
 }
 
-#offers-wrapper-pages-current {
+#offers-wrapper-pages > a#offers-wrapper-pages-current {
     color: blueviolet;
 }
 
 #offers-wrapper-pages-current:hover {
     cursor:auto;
+}
+
+#offers-wrapper-doublearrow-right {
+    transform: rotate(90deg);
+    margin-left: 0px;
+}
+
+#offers-wrapper-doublearrow-left {
+    transform: rotate(-90deg);
+    margin-right: 0px;
 }
