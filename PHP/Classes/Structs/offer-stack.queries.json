@@ -1,0 +1,12 @@
+{
+    "model": " AND model.ID = ? ",
+    "marka": "",
+    "paliwo_id": "",
+    "skrzynia_id": "",
+    "cena": "",
+    "przebieg": "",
+    "rok_produkcji": "",
+    "kraj_pochodzenia_id": "",
+    "wypadkowosc_id": "",
+    "kolor_id": ""
+}

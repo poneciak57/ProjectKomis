@@ -1,34 +1,14 @@
 const page_url = document.location.origin;
 var currentPage = 1;
 
-function fetch_offers(callback) {
+function fetch_offers(callback, options) {
     const url = page_url + '/PHP/EndPoints/Data/offers-stack.EP.php?offer_page=' + currentPage;
     fetch(url, {
         method: "POST",
         mode: "same-origin",
         cache: 'no-cache',
         credentials: 'same-origin',
-        body: JSON.stringify({
-            "model": "samochody.model_id",
-            "marka": "model.ID_marka",
-            "paliwo_id": "samochody.paliwo_id",
-            "skrzynia_biegow_id": "skrzynia_id",
-            "cena": {
-                "min": 0,
-                "max": "(SELECT MAX(cena) FROM samochody)"
-            },
-            "przebieg": {
-                "min": 0,
-                "max": "(SELECT MAX(przebieg) FROM samochody)"
-            },
-            "rok_produkcji": {
-                "min": "(SELECT MIN(rok_produkcji.rok_produkcji) FROM rok_produkcji)",
-                "max": "(SELECT MAX(rok_produkcji.rok_produkcji) FROM rok_produkcji)"
-            },
-            "kraj_pochodzenia_id": "kraj_pochodzenia_id",
-            "wypadkowosc_id": "wypadkowosc_id",
-            "kolor_id": "kolor_id"
-        }),
+        body: JSON.stringify(options),
         headers: {
             'Content-type': 'application/json; charset=UTF-8'
         }
@@ -107,8 +87,25 @@ change_pages = (data) => {
     }
     containerNumbers.innerHTML = block;
 }
+let Filters = {
+    "model": {
+        "0": 1
+    },
+    "marka": null,
+    "paliwo_id": null,
+    "skrzynia_id": null,
+    "cena": null,
+    "przebieg": null,
+    "rok_produkcji": null,
+    "kraj_pochodzenia_id": null,
+    "wypadkowosc_id": null,
+    "kolor_id": null
+}
+
+
+fetch_offers(display_offers, Filters);
 
 
 refresh_offers = () => {
-    fetch_offers(pageStart);
+    fetch_offers(pageStart, Filters);
 }
