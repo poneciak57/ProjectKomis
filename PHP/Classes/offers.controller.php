@@ -17,11 +17,7 @@ class OffersController extends Offers
         $stack = $this->Stack($this->request['specs'], $this->request['offer_page'], self::OFFER_NR);
         $ret = array();
         $ret["QuerriesFound"] = $this->CountQuerries();
-        $ret = array();
-        foreach ($stack as $key => $value) {
-            //$value['zdjecie'] = base64_encode($value['zdjecie']);
-            $ret[$key] = $value;
-        }
+        $ret["Offers"] = $stack;
         return $ret;
     }
     public function getSingle()

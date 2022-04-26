@@ -10,7 +10,10 @@ if (logout_check() == LoginState::Loged_In) {
         $request["offer_page"] = $_GET['offer_page'];
         $request["specs"] = json_decode(file_get_contents('php://input'), true);
         $OC = new OffersController($request);
-        $res["Offers"] = $OC->getStack();
+        $stack = $OC->getStack();
+        $res["QuerriesFound"] = $stack["QuerriesFound"];
+        $res["Offers"] = $stack["Offers"];
+        unset($stack);
     } else {
         $res["error"] = "Bad request";
     }
