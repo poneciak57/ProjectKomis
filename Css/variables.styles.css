@@ -12,7 +12,7 @@
     --extra-large-font-size: 4vh;
 
     /*COLORS*/
-    --main-gradient: rgb(112,3,151) linear-gradient(90deg, rgba(112,3,151,1) 0%, rgba(103,12,175,1) 17%, rgba(63,38,148,1) 41%, rgba(29,39,145,1) 67%, rgba(0,16,188,1) 86%, rgba(29,46,237,1) 100%);
+    --main-gradient: linear-gradient(90deg, rgb(87 3 118) 0%, rgb(77 9 133) 17%, rgb(52, 32, 119) 41%, rgb(16 23 100) 67%, rgb(1 10 112) 86%, rgb(24 34 161) 100%);;
     --main-lightgray: #EDEDED;
     --main-background: #F5F5F5;
     --main-darkblue: #141B66;
