@@ -4,11 +4,10 @@ header('Content-Type: application/json');
 $res = ["error" => "none", "loged_in" => true];
 $request = [];
 if (logout_check() == LoginState::Loged_In) {
-    if (isset($_GET['offer_page'])) {
+    if (isset($_GET['offer_page']) && ($request["specs"] = json_decode(file_get_contents('php://input'), true)) != null) {
         require_once "../../Classes/offers.controller.php";
 
         $request["offer_page"] = $_GET['offer_page'];
-        $request["specs"] = json_decode(file_get_contents('php://input'), true);
         $OC = new OffersController($request);
         $stack = $OC->getStack();
         $res["QuerriesFound"] = $stack["QuerriesFound"];

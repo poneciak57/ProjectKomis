@@ -33,7 +33,6 @@ pageStart = (data) => {
         change_pages(data);
     }
 }
-fetch_offers(pageStart);
 
 display_offers = (data) => {
     let container = document.getElementById("offers-wrapper-offers");
@@ -70,12 +69,11 @@ display_offers = (data) => {
 
 change_pages = (data) => {
     let containerNumbers = document.getElementById("offers-wrapper-pages");
-    let pagesAmount = data.QuerriesFound / 10;
+    let pagesAmount = Math.ceil(data.QuerriesFound / 10);
     let block = '';
     let arrows = document.getElementsByClassName("offers-wrapper-arrows");
     currentPage == 1 ? (arrows[1].onclick = "", arrows[0].onclick = "") : (arrows[1].onclick = function () { pageSwitch(-1) }, arrows[0].onclick = function () { pageSwitch(-(currentPage - 1)) });
     currentPage == pagesAmount ? (arrows[2].onclick = "", arrows[3].onclick = "") : (arrows[2].onclick = function () { pageSwitch(1) }, arrows[3].onclick = function () { pageSwitch(pagesAmount - currentPage) });
-    console.log(arrows)
 
     let temp = currentPage - 2;
     if (currentPage + 1 >= pagesAmount) temp = pagesAmount - 4;
@@ -103,7 +101,7 @@ let Filters = {
 }
 
 
-fetch_offers(display_offers, Filters);
+fetch_offers(pageStart, Filters);
 
 
 refresh_offers = () => {
