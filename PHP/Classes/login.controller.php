@@ -3,13 +3,11 @@
 require_once "login.class.php";
 class LoginController extends Login
 {
-    private $login;
-    private $password;
 
-    public function __construct($login = null, $password = null)
-    {
-        $this->login = $login;
-        $this->password = $password;
+    public function __construct(
+        private $login = null,
+        private $password = null
+    ) {
     }
 
     public function loginUser(): void

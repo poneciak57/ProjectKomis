@@ -6,11 +6,9 @@ require_once "offers.class.php";
 class OffersController extends Offers
 {
     private const OFFER_NR = 10;
-    private $request;
     private $stack_querries;
-    public function __construct(array $request)
+    public function __construct(private array $request)
     {
-        $this->request = $request;
         $this->stack_querries = json_decode(file_get_contents(__DIR__ . "/Structs/offer-stack.queries.json"), true);
     }
 

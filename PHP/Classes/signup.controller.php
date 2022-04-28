@@ -4,17 +4,15 @@
 require_once "signup.class.php";
 class SignupController extends Signup
 {
-    private $login;
-    private $password;
     private $name;
     private $surname;
     private $telephone;
     private $email;
 
-    public function __construct($login, $password)
-    {
-        $this->login = $login;
-        $this->password = $password;
+    public function __construct(
+        private $login,
+        private $password
+    ) {
     }
     public function addProperties($name, $surname, $telephone, $email)
     {
