@@ -6,18 +6,10 @@ class Offers extends DBh
 {
 
 
-    public function Stack(int $stack_nr, int $offers_nr): array
+    public function Stack(string $statement, array $args): array
     {
-        $stmt = $this->connect()->prepare("SELECT samochody.ID, marka, model,rok_produkcji, cena, typ_paliwa, przebieg, skrzynia, Data_dodania, UNCOMPRESS(`zdjecie`) as zdjecie 
-        FROM samochody, marka, model, paliwo, skrzynia_biegow ,rok_produkcji
-        WHERE model.ID = samochody.model_id 
-        AND marka.ID = model.ID_marka 
-        AND paliwo.ID = samochody.paliwo_id 
-        AND skrzynia_biegow.ID = skrzynia_id
-        AND rok_produkcji.ID = rok_produkcji_id
-        ORDER BY samochody.ID ASC LIMIT ?, ?");
-
-        $this->handleExec($stmt, [($stack_nr - 1) * $offers_nr, $offers_nr]);
+        $stmt = $this->connect()->prepare($statement);
+        $this->handleExec($stmt, $args);
         $fetched = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt = null;
         return $fetched;
@@ -57,10 +49,10 @@ class Offers extends DBh
     // {
     // }
 
-    protected function CountQuerries(): int
+    protected function CountQuerries(string $statement): int
     {
         try {
-            return $this->connect()->query("SELECT COUNT(ID) FROM `samochody`;")->fetch(PDO::FETCH_COLUMN);
+            return $this->connect()->query($statement)->fetch(PDO::FETCH_COLUMN);
         } catch (PDOException) {
             $this->error();
         }

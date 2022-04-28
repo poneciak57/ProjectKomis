@@ -20,6 +20,7 @@ class DBh
             $conn = new PDO($dsn, $this->user, $this->pass, $this->options);
         } catch (PDOException) {
             header("location: /Pages/error.page.php?error=ConnectionError");
+            exit();
         }
         return $conn;
     }
@@ -35,8 +36,7 @@ class DBh
             $stmt->execute($args);
         } catch (PDOException) {
             $stmt = null;
-            header("location: /Pages/error.page.php?error=StmtError");
-            exit();
+            $this->error();
         }
     }
 }

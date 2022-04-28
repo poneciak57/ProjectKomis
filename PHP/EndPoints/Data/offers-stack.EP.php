@@ -1,21 +1,23 @@
 <?php
 require_once "../../Functions/logout-check.func.php";
 header('Content-Type: application/json');
-$res = [];
-if (isset($_GET['offer_page'])) {
-    if (logout_check() == LoginState::Loged_In) {
+$res = ["error" => "none", "loged_in" => true];
+$request = [];
+if (logout_check() == LoginState::Loged_In) {
+    if (isset($_GET['offer_page']) && ($request["specs"] = json_decode(file_get_contents('php://input'), true)) != null) {
         require_once "../../Classes/offers.controller.php";
 
-        $request = ["offer_page" => $_GET['offer_page']];
+        $request["offer_page"] = $_GET['offer_page'];
         $OC = new OffersController($request);
-        $res = $OC->getStack();
-        $res["error"] = "none";
-        $res["loged_in"] = true;
+        $stack = $OC->getStack();
+        $res["QuerriesFound"] = $stack["QuerriesFound"];
+        $res["Offers"] = $stack["Offers"];
+        unset($stack);
     } else {
-        $res["error"] = "U are not loged in";
-        $res["loged_in"] = false;
+        $res["error"] = "Bad request";
     }
 } else {
-    $res["error"] = "Bad request";
+    $res["error"] = "U are not loged in";
+    $res["loged_in"] = false;
 }
 echo json_encode($res);
