@@ -1,6 +1,22 @@
 const page_url = document.location.origin;
 var currentPage = 1;
 
+let Filters = {
+    "model": {
+        "0": 1
+    },
+    "marka": null,
+    "paliwo_id": null,
+    "skrzynia_id": null,
+    "cena": null,
+    "przebieg": null,
+    "rok_produkcji": null,
+    "kraj_pochodzenia_id": null,
+    "wypadkowosc_id": null,
+    "kolor_id": null,
+    "search_bar": null
+}
+
 function fetch_offers(callback, options) {
     const url = page_url + '/PHP/EndPoints/Data/offers-stack.EP.php?offer_page=' + currentPage;
     fetch(url, {
@@ -24,7 +40,7 @@ function pageSwitch(a) {
 }
 
 pageStart = (data) => {
-    console.log(data);
+    //console.log(data); // response data console log 
     if (!data.loged_in) {
         window.location.href = "home.page.php?message=You got logged out";
     }
@@ -34,6 +50,32 @@ pageStart = (data) => {
     }
 }
 
+/*
+Przemyslec zmiane na sposob z tablica
+i oddzielne rozwazanie przypadku klikniecia w liczbe a w strzalke
+*/
+change_pages = (data) => {
+    let containerNumbers = document.getElementById("offers-wrapper-pages");
+    let pagesAmount = Math.ceil(data.QuerriesFound / 10);
+    let block = '';
+    let values = [0, 0];
+    let arrows = document.getElementsByClassName("offers-wrapper-arrows");
+    currentPage == 1 ? (arrows[1].onclick = "", arrows[0].onclick = "") : (arrows[1].onclick = function () { pageSwitch(-1) }, arrows[0].onclick = function () { pageSwitch(-(currentPage - 1)) });
+    currentPage == pagesAmount ? (arrows[2].onclick = "", arrows[3].onclick = "") : (arrows[2].onclick = function () { pageSwitch(1) }, arrows[3].onclick = function () { pageSwitch(pagesAmount - currentPage) });
+
+    if (pagesAmount <= 5) values = [1, pagesAmount];
+    else {
+        if (currentPage <= 3) values = [1, 5];
+        else if (currentPage + 2 >= pagesAmount) values = [pagesAmount - 4, pagesAmount];
+        else values = [currentPage - 2, currentPage + 2];
+    }
+    for (let i = values[0]; i <= values[1]; i++) {
+        if (currentPage == i) block += `<a id="offers-wrapper-pages-current">${i}</a>`;
+        else block += `<a onclick="pageSwitch(${i - currentPage})">${i}</a>`;
+    }
+    containerNumbers.innerHTML = block;
+
+}
 display_offers = (data) => {
     let container = document.getElementById("offers-wrapper-offers");
     container.innerHTML = "";
@@ -67,43 +109,9 @@ display_offers = (data) => {
     });
 }
 
-change_pages = (data) => {
-    let containerNumbers = document.getElementById("offers-wrapper-pages");
-    let pagesAmount = Math.ceil(data.QuerriesFound / 10);
-    let block = '';
-    let arrows = document.getElementsByClassName("offers-wrapper-arrows");
-    currentPage == 1 ? (arrows[1].onclick = "", arrows[0].onclick = "") : (arrows[1].onclick = function () { pageSwitch(-1) }, arrows[0].onclick = function () { pageSwitch(-(currentPage - 1)) });
-    currentPage == pagesAmount ? (arrows[2].onclick = "", arrows[3].onclick = "") : (arrows[2].onclick = function () { pageSwitch(1) }, arrows[3].onclick = function () { pageSwitch(pagesAmount - currentPage) });
-
-    let temp = currentPage - 2;
-    if (currentPage + 1 >= pagesAmount) temp = pagesAmount - 4;
-    if (currentPage <= 3) temp = 1;
-    for (let i = temp; i < temp + 5; i++) {
-        if (i == currentPage) block += `<a id="offers-wrapper-pages-current">${i}</a>`;
-        else if (i > currentPage) block += `<a onclick="pageSwitch(${i - currentPage})">${i}</a>`;
-        else block += `<a onclick="pageSwitch(${i - currentPage})">${i}</a>`;
-    }
-    containerNumbers.innerHTML = block;
-}
-let Filters = {
-    "model": {
-        "0": 1
-    },
-    "marka": null,
-    "paliwo_id": null,
-    "skrzynia_id": null,
-    "cena": null,
-    "przebieg": null,
-    "rok_produkcji": null,
-    "kraj_pochodzenia_id": null,
-    "wypadkowosc_id": null,
-    "kolor_id": null
-}
-
-
-fetch_offers(pageStart, Filters);
-
 
 refresh_offers = () => {
     fetch_offers(pageStart, Filters);
 }
+
+fetch_offers(pageStart, Filters);
