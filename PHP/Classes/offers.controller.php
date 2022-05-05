@@ -14,7 +14,7 @@ class OffersController extends Offers
 
     public function getStack()
     {
-        $stmt = $this->prepareStatement();
+        $stmt = $this->prepareStackStatement();
         $stack = $this->Stack($stmt["stmt"], $stmt["args"]);
 
         $ret = array();
@@ -46,7 +46,7 @@ class OffersController extends Offers
     // {
     // }
 
-    private function prepareStatement(): array
+    private function prepareStackStatement(): array
     {
         $ret = [];
         $ret["args"] = [];
