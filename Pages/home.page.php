@@ -22,6 +22,8 @@ require_once "../Modules/logout-check.module.php";
     }
     ?>
 
+    <?php //include_once "../Modules/form-options.module.php" //do testow formularza jako embed/module
+    ?>
 
     <h2>Errors and messages:</h2></br>
     <?php

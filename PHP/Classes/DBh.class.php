@@ -30,7 +30,7 @@ class DBh
         header("location: /Pages/error.page.php?error=StmtError");
         exit();
     }
-    protected function handleExec(PDOStatement &$stmt, array $args)
+    protected function handleExec(PDOStatement &$stmt, array $args = [])
     {
         try {
             $stmt->execute($args);
