@@ -7,6 +7,7 @@ class OptionsController extends Options
 
     public function Models(int $brand_id): void
     {
+        $this->display($this->getOptions('model', 'model', " WHERE ID_marka = $brand_id "));
     }
     public function Brands(): void
     {

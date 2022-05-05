@@ -7,6 +7,7 @@ $OptC = new OptionsController();
     <select name="models">
         <option value=null class="option-all">wszystkie</option>
         <?php // TUTAJ TRZEBA ID MIEC MARKI NIE DO KONCA WIEM JAK TO CHCEMY ROBIC // 
+        //$OptC->Models(ID => int);
         ?>
     </select>
     <select name="brands">
