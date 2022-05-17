@@ -91,10 +91,10 @@ require_once "../Modules/logout-check.module.php";
                 </div>
                 <div class="offers-filters-block-filter">
                     <div class="offers-filters-block-filter-title">Powypadkowy</div>
-                    <select name="colors">
+                    <select name="crashes">
                         <option value=null class="option-all">Wszystkie</option>
                         <option value=1 class="option-all">Tak</option>
-                        <option value=0 class="option-all">Nie</option>
+                        <option value=2 class="option-all">Nie</option>
                     </select>
                 </div>
         </div>
@@ -102,7 +102,7 @@ require_once "../Modules/logout-check.module.php";
     <?php
     include "../Modules/navbar.module.php";
     ?>
-    <div id="offers-searchBar-block">
+    <!--<div id="offers-searchBar-block">
         
         <div id="offers-searchBar">
             
@@ -117,7 +117,7 @@ require_once "../Modules/logout-check.module.php";
                 <input type="submit" id="offers-searchBar-Search" value="Szukaj">
             </form>
         </div>
-    </div>
+    </div>-->
     <div id="offers-mainblock">
         <div id="offers-mainblock-filters">
             <div id="offers-mainblock-filters-main">

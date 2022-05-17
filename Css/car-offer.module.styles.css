@@ -96,3 +96,14 @@
     border: 0.02vh solid var(--main-gray);
 
 }
+
+#carOffer-error {
+    text-align: center;
+    width: 100%;
+    font-size: var(--extra-large-font-size);
+    padding: 11vh 0vh;
+}
+
+#carOffer-error > span {
+    font-size: var(--normal-font-size);
+}
