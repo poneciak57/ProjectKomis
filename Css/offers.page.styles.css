@@ -1,6 +1,6 @@
 @import "variables.styles.css";
 
-/* SEARCH BAR */
+/* SEARCH BAR 
 
 #offers-searchBar-block {
     display: flex;
@@ -69,7 +69,7 @@
     height: 100%;
     border: 0.05vh solid var(--main-lightgray);
 }
-
+*/
 
 
 /* MAIN BLOCK */
@@ -83,6 +83,7 @@
 
 #offers-mainblock-filters {
     display: flex;
+    flex-direction: column;
     width: 70%;
 }
 
@@ -180,4 +181,92 @@
 #offers-wrapper-doublearrow-left {
     transform: rotate(-90deg);
     margin-right: 0px;
+}
+
+/* FILTERS */
+
+#offers-filters {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+#offers-filters-block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 80%;
+    height: auto;
+    background-color: var(--main-background);
+    margin-bottom: 10vh;
+    border-radius: 1vh;
+    padding: 3vh;
+}
+
+#offers-filters-block-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--extra-large-font-size);
+    height: auto;
+    width: 100%;
+    height: 2vh;
+    margin-bottom: 4vh;
+}
+
+.offers-filters-block-filter {
+    width: 30vh;
+    display: flex;
+    flex-direction: column;
+    margin: 1vh;
+}
+
+.offers-filters-block-filter-title {
+    font-size: var(--small-large-font-size);
+}
+
+.offers-filters-block-filter > input, .offers-filters-block-filter > select {
+    width: 92%;
+    height: 6vh;
+    border-radius: 1vh;
+    border: none;
+    outline: none;
+    padding: 0vh 1vh;
+}
+
+.offers-filters-block-filter-doubleinput  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.offers-filters-block-filter-doubleinput > input {
+    width: 42%;
+    height: 6vh;
+    border-radius: 1vh;
+    border: none;
+    outline: none;
+    padding: 0vh 1vh;
+}
+
+#offers-mainblock-filters-show {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 1vh;
+}
+
+.offers-mainblock-filter {
+    background-color: white;
+    width: auto;
+    padding: 1vh 2vh;
+    margin: 0.5vh 1vh;
+    border-radius: 1vh;
 }

@@ -12,4 +12,7 @@ class Option
     {
         return "<option value={$this->value} >{$this->name}</option>";
     }
+    public function pack(array &$table) {
+        $table[$this->value] = $this->name;
+    }
 }

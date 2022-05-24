@@ -1,21 +1,54 @@
 const page_url = document.location.origin;
+var q = document.querySelectorAll('select'),    
+    p = document.querySelectorAll('input');
+
 var currentPage = 1;
 
 let Filters = {
-    "model": {
-        "0": 1
-    },
     "marka": null,
+    "model": null,
     "paliwo_id": null,
     "skrzynia_id": null,
-    "cena": null,
-    "przebieg": null,
-    "rok_produkcji": null,
     "kraj_pochodzenia_id": null,
-    "wypadkowosc_id": null,
     "kolor_id": null,
-    "search_bar": null
+    "wypadkowosc_id": null,
+    
+    "cena": null,
+    "rok_produkcji": null,
+    "przebieg": null/*,
+    "search_bar": null,*/
 }
+
+let filtersForDisplay = {     
+    "marka": ["Marka: ", ""],
+    "model": ["Model: ", ""],
+    "paliwo_id": ["Rodzaj paliwa: ", ""],
+    "skrzynia_id": ["Skrzynia biegów: ", ""],
+    "kraj_pochodzenia_id": ["Kraj pochodzenia: ", ""],
+    "kolor_id": ["Kolor: ", ""],
+    "wypadkowosc_id": ["Wypadkowość: ", ""], //WYPADKOWOSC NIE DZIALA NIE MA W FORM-OPTIONS.CONTROLLER
+    "cena": ["Cena: ", ""],
+    "rok_produkcji": ["Rok produkcji: ", ""],
+    "przebieg": ["Przebieg: ", ""]
+}
+
+function createDictionary(a) {
+    fetch(page_url + '/PHP/EndPoints/Data/filters-get.EP.php')
+    .then(response => response.json())
+    .then(data => {
+        for (let k in data) {
+            filtersForDisplay[k][1] = data[k];
+        }
+        
+    });
+    
+}
+
+
+
+
+
+
 
 function fetch_offers(callback, options) {
     const url = page_url + '/PHP/EndPoints/Data/offers-stack.EP.php?offer_page=' + currentPage;
@@ -39,14 +72,62 @@ function pageSwitch(a) {
     refresh_offers();
 }
 
+function filters(a) {
+    var x = document.getElementById('offers-filters');
+    if(a) x.style.display = 'flex';
+    else {
+        q = document.querySelectorAll('select');
+        p = document.querySelectorAll('input');
+        var displayed_filters = "";
+        var temp = 0;
+        for (let k in Filters) {
+            if(temp >= 7) {
+                Filters[k] = [(p[temp-6].value == '') ? 0 : parseInt(p[temp-6].value), (p[temp-5].value == '') ? 999999999 : parseInt(p[temp-5].value)];
+                filtersForDisplay[k][1] = Filters[k];
+                if((p[temp-6].value == '') && (p[temp-5].value == '')) Filters[k] = null;
+                if(Filters[k] != null) displayed_filters += '<div class="offers-mainblock-filter">'+ filtersForDisplay[k][0] + filtersForDisplay[k][1][0] + " - " + filtersForDisplay[k][1][1] + '</div>';
+                temp += 2;
+            } else {
+                Filters[k] = (q[temp].value == 'null' || q[temp].value == '') ? null : [parseInt(q[temp].value)];
+                if(Filters[k] != null) displayed_filters += '<div class="offers-mainblock-filter">'+ filtersForDisplay[k][0] + filtersForDisplay[k][1][Filters[k]] + '</div>';
+                temp++;
+            }
+            
+        }   
+        document.getElementById("offers-mainblock-filters-show").innerHTML = displayed_filters;
+        x.style.display = 'none';
+        console.log(filtersForDisplay);
+        pageSwitch(-currentPage+1);
+    };
+}
+
+function model() {
+    var x = document.getElementById("offers-filters-marka"),
+        z = document.getElementById("offers-filters-model"),
+        y = document.getElementById("select-models");
+    if(x.value != 'null') {
+        z.style.display = "flex";
+        fetch(page_url + '/PHP/EndPoints/Data/modelbyID.EP.php?ID=' + x.value)
+        .then(response => response.text())
+        .then(data => y.innerHTML = "<option value=null class='option-all'>Wszystkie</option>" + data);
+        
+    }
+    else {
+        z.style.display = "none";
+        q[1].value = 'null';
+    };
+
+}
+
 pageStart = (data) => {
-    //console.log(data); // response data console log 
+    
     if (!data.loged_in) {
         window.location.href = "home.page.php?message=You got logged out";
     }
     else {
         display_offers(data);
         change_pages(data);
+        createDictionary();
     }
 }
 
@@ -56,7 +137,7 @@ i oddzielne rozwazanie przypadku klikniecia w liczbe a w strzalke
 */
 change_pages = (data) => {
     let containerNumbers = document.getElementById("offers-wrapper-pages");
-    let pagesAmount = Math.ceil(data.QuerriesFound / 10);
+    let pagesAmount = Math.max(1, (Math.ceil(data.QuerriesFound / 10)));
     let block = '';
     let values = [0, 0];
     let arrows = document.getElementsByClassName("offers-wrapper-arrows");
@@ -79,8 +160,13 @@ change_pages = (data) => {
 display_offers = (data) => {
     let container = document.getElementById("offers-wrapper-offers");
     container.innerHTML = "";
-    document.getElementById("queries_nr").innerHTML = data.QuerriesFound;
-    document.getElementById("offers-searchBar-searchInput").placeholder = "Szukaj pośród ponad " + data.QuerriesFound + " ogłoszeń";
+
+    let ogloszen = "";
+    if(data.QuerriesFound > 4 || data.QuerriesFound == 0) ogloszen = " ogłoszeń";
+    else if (data.QuerriesFound > 1) ogloszen = " ogłoszenia";
+    else ogloszen = " ogłoszenie";
+
+    document.getElementById("queries_nr").innerHTML = data.QuerriesFound + ogloszen;
     data["Offers"].forEach(offer => {
         container.innerHTML += `<div class="carOffer" value="${offer.Id}">
         <div class="carOffer-main">
@@ -107,6 +193,9 @@ display_offers = (data) => {
             <hr class="carOffer-line">
         </div>`
     });
+    if(data.QuerriesFound == 0) {
+        container.innerHTML = "<div id='carOffer-error'>Niestety nie znaleziono żadnych ogłoszeń<br><span>Proszę wybrać inne zestawienie filtrów</span></div>"
+    }
 }
 
 

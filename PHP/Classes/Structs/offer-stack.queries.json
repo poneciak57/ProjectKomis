@@ -1,13 +1,13 @@
 {
     "model": " AND model.ID = ? ",
-    "marka": "",
-    "paliwo_id": "",
-    "skrzynia_id": "",
-    "cena": "",
-    "przebieg": "",
-    "rok_produkcji": "",
-    "kraj_pochodzenia_id": "",
-    "wypadkowosc_id": "",
-    "kolor_id": "",
+    "marka": " AND marka.ID = ? ",
+    "paliwo_id": " AND paliwo.ID = ? ",
+    "skrzynia_id": " AND skrzynia_biegow.ID = ? ",
+    "cena": " AND cena BETWEEN ? AND ? ",
+    "przebieg": " AND przebieg BETWEEN ? AND ? ",
+    "rok_produkcji": " AND rok_produkcji.rok_produkcji BETWEEN ? AND ? ",
+    "kraj_pochodzenia_id": " AND kraj_pochodzenia_id = ? ",
+    "wypadkowosc_id": " AND wypadkowosc_id = ? ",
+    "kolor_id": " AND kolor_id = ? ",
     "search_bar": " AND (marka.marka LIKE '%?%' OR model.model LIKE '%?%') "
 }
