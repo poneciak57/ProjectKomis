@@ -1,13 +1,11 @@
 <?php
 header('Content-Type: application/json');
-$res = [];
-if (isset($_GET['login'])) {
-    require_once "../../Classes/login.controller.php";
-    $login = new LoginController($_GET['login']);
+require_once "../../Classes/login.controller.php";
 
-    $res["IsLoginCorrect"] = $login->IsLoginCorrect();
-    $res["error"] = "none";
-} else {
-    $res["error"] = "Bad request";
+if (!isset($_GET['login'])) {
+    echo json_encode(['error' => 'Bad request']);
+    exit();
 }
-echo json_encode($res);
+$login = new LoginController($_GET['login']);
+
+echo json_encode(['error' => 'none', 'IsLoginCorrect' => $login->IsLoginCorrect()]);

@@ -12,8 +12,12 @@ class Options extends DBh
 
     protected function getOptions(string $name, string $column, string $sql_conditions = ""): array
     {
-        return $this->connect()
-            ->query("SELECT `ID` as `value`, `$name`as `name` FROM `$column` $sql_conditions;")
-            ->fetchAll(PDO::FETCH_FUNC, "Options::row_maper");
+        try {
+            return $this->connect()
+                ->query("SELECT `ID` as `value`, `$name`as `name` FROM `$column` $sql_conditions;")
+                ->fetchAll(PDO::FETCH_FUNC, "Options::row_maper");
+        } catch (PDOException) {
+            $this->error();
+        }
     }
 }
