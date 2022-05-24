@@ -7,7 +7,7 @@ class OffersController extends Offers
 {
     private const OFFER_NR = 10;
     private $stack_querries;
-    public function __construct(private array $request)
+    public function __construct(private array $request = [])
     {
         $this->stack_querries = json_decode(file_get_contents(__DIR__ . "/Structs/offer-stack.queries.json"), true);
     }
@@ -33,18 +33,25 @@ class OffersController extends Offers
         return $ret;
     }
 
-    // public function addOffer()
-    // {
-    // }
-
-    public function deleteOffer()
+    public function addOffer($imgData)
     {
-        $this->delete($this->request["ID"]);
+        $offer = $this->retrieveOfferFromRequest();
+        $offer[] = $imgData;
+        $this->Add($offer);
     }
 
-    // public function updateOffer(int $ID)
-    // {
-    // }
+    public function deleteOffer($Id)
+    {
+        $this->delete($Id);
+    }
+
+    public function updateOffer(int $ID, $imgData)
+    {
+        if ($imgData != null)
+            $this->UpdateImg($ID, img: $imgData);
+
+        $this->Update($ID, offer: $this->retrieveOfferFromRequest());
+    }
 
     private function prepareStackStatement(): array
     {
@@ -92,5 +99,31 @@ class OffersController extends Offers
         }
         $stmt .= ";";
         return $stmt;
+    }
+
+    private function retrieveOfferFromRequest(): array
+    {
+        return [
+            $this->request['model_id'],
+            $this->request['cena'],
+            $this->request['rok_produkcji_id'],
+            $this->request['przebieg'],
+            $this->request['moc_silnika'],
+            $this->request['paliwo_id'],
+            $this->request['skrzynia_id'],
+            $this->request['kraj_pochodzenia_id'],
+            $this->request['kolor_id'],
+            $this->request['Liczba_drzwi'],
+            $this->request['Liczba_miejsc'],
+            $this->request['Typ_opon'],
+            $this->request['Tapicerka'],
+            $this->request['Oryginalny_silnik'],
+            $this->request['Emisja_CO2'],
+            $this->request['Ostatni_serwis'],
+            $this->request['Data_dodania'],
+            $this->request['Liczba_kluczy'],
+            $this->request['Numer_wewnetrzny'],
+            $this->request['wypadkowosc_id']
+        ];
     }
 }

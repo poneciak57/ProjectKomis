@@ -34,9 +34,13 @@ class Offers extends DBh
         return $fetched;
     }
 
-    // protected function Add()
-    // {
-    // }
+    protected function Add(array $offer)
+    {
+        $stmt = $this->connect()->prepare("INSERT INTO `samochody`(`model_id`, `cena`, `rok_produkcji_id`, `przebieg`, `moc_silnika`, `paliwo_id`, `skrzynia_id`, `kraj_pochodzenia_id`, `kolor_id`, `Liczba_drzwi`, `Liczba_miejsc`, `Typ_opon`, `Tapicerka`, `Oryginalny_silnik`, `Emisja_CO2`, `Ostatni_serwis`, `Data_dodania`, `Liczba_kluczy`, `Numer_wewnetrzny`, `wypadkowosc_id`, `zdjecie`) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,'?','?',?,?,'?','?',?,'?',?,COMPRESS('?'))");
+        $this->handleExec($stmt, $offer);
+        $stmt = null;
+    }
 
     protected function Delete(int $ID): void
     {
@@ -45,9 +49,12 @@ class Offers extends DBh
         $stmt = null;
     }
 
-    // protected function Update(int $ID)
-    // {
-    // }
+    protected function UpdateImg(int $ID, string $img)
+    {
+    }
+    protected function Update(int $ID, array $offer)
+    {
+    }
 
     protected function CountQuerries(string $statement): int
     {
