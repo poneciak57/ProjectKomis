@@ -34,9 +34,17 @@ class DBh
     {
         try {
             $stmt->execute($args);
-        } catch (PDOException) {
+        } catch (PDOException $e) {
+            // $this->debug($e);
             $stmt = null;
             $this->error();
         }
+    }
+
+    private function debug(PDOException $e)
+    {
+        echo '<br>message: ' . $e->getMessage() . '<br>';
+        echo 'code: ' . $e->getCode();
+        exit();
     }
 }

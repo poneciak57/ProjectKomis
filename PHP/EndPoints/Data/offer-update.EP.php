@@ -5,7 +5,7 @@ require_once "../../Functions/logout-check.func.php";
 require_once "/ProjectKomis/PHP/Classes/Structs/user.struct.php";
 require_once "../../Classes/offers.controller.php";
 
-if (!isset($_POST['submit'])) {
+if (!isset($_GET['ID'])) {
     echo json_encode(['error' => 'Bad request']);
     exit();
 }
@@ -20,8 +20,8 @@ if (unserialize($_SESSION["User"])->Privileges != 1) {
 
 $OC = new OffersController($_POST);
 if (isset($_FILES['zdjecie'])) {
-    $OC->updateOffer($_POST['ID'], imgData: file_get_contents($_FILES['UserPhoto']['tmp_name']));
+    $OC->updateOffer($_GET['ID'], imgData: file_get_contents($_FILES['zdjecie']['tmp_name']));
 } else {
-    $OC->updateOffer($_POST['ID'], imgData: null);
+    $OC->updateOffer($_GET['ID'], imgData: null);
 }
 echo json_encode(['error' => 'none', 'loged_in' => true]);

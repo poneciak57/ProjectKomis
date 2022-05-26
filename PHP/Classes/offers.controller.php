@@ -36,7 +36,7 @@ class OffersController extends Offers
     public function addOffer($imgData)
     {
         $offer = $this->retrieveOfferFromRequest();
-        $offer[] = $imgData;
+        $offer[] = base64_encode($imgData);
         $this->Add($offer);
     }
 
@@ -48,7 +48,7 @@ class OffersController extends Offers
     public function updateOffer(int $ID, $imgData)
     {
         if ($imgData != null)
-            $this->UpdateImg($ID, img: $imgData);
+            $this->UpdateImg($ID, img: base64_encode($imgData));
 
         $this->Update($ID, offer: $this->retrieveOfferFromRequest());
     }
