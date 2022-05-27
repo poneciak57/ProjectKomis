@@ -46,10 +46,6 @@ function createDictionary(a) {
 
 
 
-
-
-
-
 function fetch_offers(callback, options) {
     const url = page_url + '/PHP/EndPoints/Data/offers-stack.EP.php?offer_page=' + currentPage;
     fetch(url, {
@@ -157,6 +153,30 @@ change_pages = (data) => {
     containerNumbers.innerHTML = block;
 
 }
+/**
+* add offer to favourite cookie
+* and switch button item to delete button
+* @param {Number} id
+* @param {Image} button
+*/
+add_to_favourites = (id, button) => {
+    localStorage.setItem(id, "set");
+    button.onclick = function () { delete_from_favourites(id, button) };
+    button.src = "../Sources/heart-icon-red.svg";
+}
+/**
+* delete offer from favourite cookie
+* and switch button item to add button
+* @param {Number} id
+* @param {Image} button
+*/
+delete_from_favourites = (id, button) => {
+    localStorage.removeItem(id);
+    button.onclick = function () { add_to_favourites(id, button) };
+    button.src = "../Sources/heart-icon.svg";
+}
+
+
 display_offers = (data) => {
     let container = document.getElementById("offers-wrapper-offers");
     container.innerHTML = "";
@@ -166,8 +186,10 @@ display_offers = (data) => {
     else if (data.QuerriesFound > 1) ogloszen = " ogłoszenia";
     else ogloszen = " ogłoszenie";
     document.getElementById("queries_nr").innerHTML = data.QuerriesFound + ogloszen;
+
     data["Offers"].forEach(offer => {
-        container.innerHTML += `<div class="carOffer" value="${offer.Id}">
+        is_favourite = localStorage.getItem(offer.ID);
+        container.innerHTML += `<div class="carOffer" value="${offer.ID}">
         <div class="carOffer-main">
             <div class="carOffer-img">
                 <img src="data:image/jpeg;base64,${offer.zdjecie}" class="image" />
@@ -184,7 +206,7 @@ display_offers = (data) => {
                     </div>
                 </div>
                 <div class="carOffer-content-right">
-                    <img src="../Sources/heart-icon.svg" alt="heart icon" onclick="">
+                    <img src="../Sources/${is_favourite ? "heart-icon-red" : "heart-icon"}.svg" alt="heart icon" onclick="${is_favourite ? "delete_from_favourites" : "add_to_favourites"}(${offer.ID},this)">
                     <div class="carOffer-content-price">${offer.cena}zł</div>
                 </div>
             </div>

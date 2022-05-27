@@ -1,6 +1,6 @@
 <?php
 
-class DBh
+abstract class DBh
 {
     private $host = 'localhost';
     private $db   = 'komis';
