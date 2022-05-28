@@ -199,7 +199,7 @@ add_to_favourites = (id, button) => {
     else {
         localStorage.setItem('favourites', `[${id}]`)
     }
-    console.log(localStorage);
+    // console.log(localStorage);
     button.onclick = function () { delete_from_favourites(id, button) };
     button.src = "../Sources/heart-icon-red.svg";
     perform_action();
@@ -211,9 +211,14 @@ add_to_favourites = (id, button) => {
 * @param {Image} button
 */
 delete_from_favourites = (id, button) => {
-    let favs = JSON.parse(localStorage.favourites);
-    localStorage.favourites = JSON.stringify(arrayRemove(favs, id));
-    console.log(localStorage);
+    if (!localStorage.getItem('favourites')) {
+        localStorage.setItem('favourites', `[]`)
+    }
+    else {
+        let favs = JSON.parse(localStorage.favourites);
+        localStorage.favourites = JSON.stringify(arrayRemove(favs, id));
+    }
+    // console.log(localStorage);
     button.onclick = function () { add_to_favourites(id, button) };
     button.src = "../Sources/heart-icon.svg";
     perform_action();
@@ -224,7 +229,12 @@ delete_from_favourites = (id, button) => {
 * @returns {boolean}
 */
 is_favourites = (id) => {
-    return JSON.parse(localStorage.favourites).includes(id);
+
+    if (localStorage.getItem('favourites'))
+        return JSON.parse(localStorage.favourites).includes(id);
+
+    localStorage.setItem('favourites', `[]`)
+    return false;
 }
 
 display_offers = (data) => {
