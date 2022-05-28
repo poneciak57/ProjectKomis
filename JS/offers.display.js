@@ -153,6 +153,37 @@ change_pages = (data) => {
     containerNumbers.innerHTML = block;
 
 }
+
+/**
+ * sends request to server 
+ * to check if user is loged 
+ * if not it will log him out
+ * if yes it will refresh time before logout on server 
+ */
+perform_action = () => {
+    fetch(page_url + '/PHP/EndPoints/Login&Signup/perform_action.EP.php', {
+        method: "GET",
+        mode: "same-origin",
+        credentials: 'same-origin',
+    })
+        .then(response => response.json())
+        .then(data => !data.loged_in ? window.location.href = "home.page.php?message=You got logged out" : null);
+}
+
+/**
+* deletes all elements equals to value
+* and return array 
+* @param {Array} arr
+* @param {Number} value
+* @returns {Array}
+*/
+function arrayRemove(arr, value) {
+
+    return arr.filter(function (element) {
+        return element != value;
+    });
+}
+
 /**
 * add offer to favourite cookie
 * and switch button item to delete button
@@ -160,9 +191,18 @@ change_pages = (data) => {
 * @param {Image} button
 */
 add_to_favourites = (id, button) => {
-    localStorage.setItem(id, "set");
+    if (localStorage.getItem('favourites')) {
+        let favs = JSON.parse(localStorage.favourites);
+        favs.push(id);
+        localStorage.favourites = JSON.stringify(favs);
+    }
+    else {
+        localStorage.setItem('favourites', `[${id}]`)
+    }
+    console.log(localStorage);
     button.onclick = function () { delete_from_favourites(id, button) };
     button.src = "../Sources/heart-icon-red.svg";
+    perform_action();
 }
 /**
 * delete offer from favourite cookie
@@ -171,11 +211,21 @@ add_to_favourites = (id, button) => {
 * @param {Image} button
 */
 delete_from_favourites = (id, button) => {
-    localStorage.removeItem(id);
+    let favs = JSON.parse(localStorage.favourites);
+    localStorage.favourites = JSON.stringify(arrayRemove(favs, id));
+    console.log(localStorage);
     button.onclick = function () { add_to_favourites(id, button) };
     button.src = "../Sources/heart-icon.svg";
+    perform_action();
 }
-
+/**
+* check if offer with given id is favourite
+* @param {Number} id
+* @returns {boolean}
+*/
+is_favourites = (id) => {
+    return JSON.parse(localStorage.favourites).includes(id);
+}
 
 display_offers = (data) => {
     let container = document.getElementById("offers-wrapper-offers");
@@ -188,7 +238,7 @@ display_offers = (data) => {
     document.getElementById("queries_nr").innerHTML = data.QuerriesFound + ogloszen;
 
     data["Offers"].forEach(offer => {
-        is_favourite = localStorage.getItem(offer.ID);
+        is_favourite = is_favourites(offer.ID);
         container.innerHTML += `<div class="carOffer" value="${offer.ID}">
         <div class="carOffer-main">
             <div class="carOffer-img">
