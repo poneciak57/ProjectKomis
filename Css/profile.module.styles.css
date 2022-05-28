@@ -5,7 +5,7 @@ body {
 }
 
 #main-section {
-    width: 200vh;
+    width: 100%;
 }
 
 #setting-section {
@@ -22,8 +22,8 @@ body {
     display: flex;
     align-items: center;
     background-color: var(--main-background);
-    padding-left: 5vh;
-    padding-right: 5vh;
+    /* padding-left: 5vh;
+    padding-right: 5vh; */
 
 }
 
@@ -42,6 +42,7 @@ body {
     flex-direction: column;
     flex-flow: wrap;
     justify-content: flex-end;
+    margin-right: 6vh;
 }
 
 #avatar {
