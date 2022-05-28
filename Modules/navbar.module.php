@@ -12,7 +12,7 @@
 
         <div class="navbar-page" onclick="">
             <img src="../Sources/user-icon-white.svg" alt="user icon" class="navbar-icons">
-            Mój profil
+            <a href="profile.page.php">Mój profil</a>
             <img src="../Sources/arrow-icon-white.svg" alt="arrow icon" id="navbar-myprofile-arrow">
         </div>
     </div>
