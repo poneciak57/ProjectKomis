@@ -1,0 +1,144 @@
+@import "variables.styles.css";
+
+body {
+    background-color: var(--main-lightgray);
+}
+
+#main-section {
+    width: 200vh;
+}
+
+#setting-section {
+    width: 160vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#info-section {
+    width: 160vh;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--main-background);
+    padding-left: 5vh;
+    padding-right: 5vh;
+
+}
+
+#profile-avatar {
+    width: 50%;
+    text-align: center;
+    padding-left: 20vh;
+    padding-right: 20vh;
+    padding-top: 15vh;
+    padding-bottom: 10vh;
+}
+
+#info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    justify-content: flex-end;
+}
+
+#avatar {
+    width: 30vh;
+    height: 30vh;
+    background-color: gray;
+    border-radius: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: var(--normal-font-size);
+
+}
+
+#profile-avatar p {
+    width: 30vh;
+    font-size: var(--large-font-size);
+}
+
+h1 {
+    font-size: var(--extra-large-font-size);
+}
+
+h2 {
+    font-size: var(--large-font-size);
+    text-align: left;
+}
+
+input {
+    background-color: transparent;
+    margin-top: 5vh;
+    font-size: var(--normal-font-size);
+    border-radius: 0.6vh;
+    padding: 2vh;
+    padding-left: 1vh;
+    padding-right: 0vh;
+    border-color: var(--main-darkgray);
+    border-style: solid;
+    border: 0.1vh solid var(--main-darkgray);
+}
+
+input::placeholder {
+    color: black;
+}
+
+#login,
+#email,
+#telefon {
+    width: 100%;
+}
+
+#imie,
+#nazwisko {
+    width: 47%;
+}
+
+#nazwisko {
+    margin-left: 0.75%;
+}
+
+#imie {
+    margin-right: 0.75%;
+}
+
+#button {
+    width: 32.5%;
+    color: white;
+    border: none;
+    margin-bottom: 5vh;
+    background: var(--main-gradient);
+    padding: 0.5vh;
+    padding-left: 0vh;
+    padding-right: 0vh;
+    font-size: var(--small-large-font-size);
+}
+
+#email:focus-visible,
+#login:focus-visible,
+#telefon:focus-visible,
+#imie:focus-visible,
+#nazwisko:focus-visible {
+    outline: none;
+}
+
+#row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#avatar:hover {
+    background-color: rgb(0, 0, 0, 0.75);
+
+
+}
+
+#avatar:hover::after {
+    content: "Zmień";
+}
