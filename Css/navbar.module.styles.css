@@ -29,14 +29,14 @@
 #navbar-pages {
     display: flex;
     justify-content: space-between;
-    width: 38vh;
+    width: 50vh;
     margin-right: var(--distance-from-border);
 }
 
 .navbar-icons {
     width: 3vh;
     height: 3vh;
-    margin-right: 0.4vh;
+    margin-right: 1vh;
 }
 
 .navbar-page {

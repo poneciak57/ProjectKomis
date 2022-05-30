@@ -10,11 +10,12 @@
     --small-large-font-size: 3vh;
     --large-font-size: 3.5vh;
     --extra-large-font-size: 4vh;
+    --huge-font-size: 5vh;
 
     /*COLORS*/
     --main-gradient: linear-gradient(90deg, rgb(87 3 118) 0%, rgb(77 9 133) 17%, rgb(52, 32, 119) 41%, rgb(16 23 100) 67%, rgb(1 10 112) 86%, rgb(24 34 161) 100%);;
     --main-lightgray: #EDEDED;
-    --main-background: #F5F5F5;
+    --main-background: #f3f3f3;
     --main-darkblue: #141B66;
     --main-darkgray: #686868;
     --main-gray: rgb(190, 190, 190);

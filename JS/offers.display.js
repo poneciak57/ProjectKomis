@@ -26,13 +26,13 @@ let filtersForDisplay = {
     "skrzynia_id": ["Skrzynia biegów: ", ""],
     "kraj_pochodzenia_id": ["Kraj pochodzenia: ", ""],
     "kolor_id": ["Kolor: ", ""],
-    "wypadkowosc_id": ["Wypadkowość: ", ""], //WYPADKOWOSC NIE DZIALA NIE MA W FORM-OPTIONS.CONTROLLER
+    "wypadkowosc_id": ["Wypadkowość: ", ""],
     "cena": ["Cena: ", ""],
     "rok_produkcji": ["Rok produkcji: ", ""],
     "przebieg": ["Przebieg: ", ""]
 }
 
-function createDictionary(a) {
+function createDictionary() {
     fetch(page_url + '/PHP/EndPoints/Data/filters-get.EP.php')
     .then(response => response.json())
     .then(data => {
@@ -43,11 +43,6 @@ function createDictionary(a) {
     });
     
 }
-
-
-
-
-
 
 
 function fetch_offers(callback, options) {
@@ -135,6 +130,8 @@ pageStart = (data) => {
 Przemyslec zmiane na sposob z tablica
 i oddzielne rozwazanie przypadku klikniecia w liczbe a w strzalke
 */
+
+
 change_pages = (data) => {
     let containerNumbers = document.getElementById("offers-wrapper-pages");
     let pagesAmount = Math.max(1, (Math.ceil(data.QuerriesFound / 10)));
@@ -157,6 +154,7 @@ change_pages = (data) => {
     containerNumbers.innerHTML = block;
 
 }
+
 display_offers = (data) => {
     let container = document.getElementById("offers-wrapper-offers");
     container.innerHTML = "";
@@ -168,7 +166,7 @@ display_offers = (data) => {
 
     document.getElementById("queries_nr").innerHTML = data.QuerriesFound + ogloszen;
     data["Offers"].forEach(offer => {
-        container.innerHTML += `<div class="carOffer" value="${offer.Id}">
+        container.innerHTML += `<div class="carOffer" value="${offer.ID}" onclick="window.location = 'offers-single.page.php?ID=${offer.ID}'">
         <div class="carOffer-main">
             <div class="carOffer-img">
                 <img src="data:image/jpeg;base64,${offer.zdjecie}" class="image" />

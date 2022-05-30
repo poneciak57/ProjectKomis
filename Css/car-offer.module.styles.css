@@ -8,6 +8,11 @@
     width: 100%;
 }
 
+.carOffer:hover {
+    cursor: pointer;
+    filter: brightness(93%);
+}
+
 .carOffer-main {
     display: flex;
     width: 100%;

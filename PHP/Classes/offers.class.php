@@ -17,7 +17,7 @@ class Offers extends DBh
 
     protected function Single(int $ID): array
     {
-        $stmt = $this->connect()->prepare("SELECT samochody.ID, marka, model, cena, rok_produkcji, przebieg, moc_silnika, typ_paliwa, skrzynia, kraj_pochodzenia, kolor, wypadkowosc_id, UNCOMPRESS(zdjecie) as zdjecie, Liczba_drzwi, Liczba_miejsc, Liczba_kluczy, Typ_opon, Tapicerka, Oryginalny_silnik, Emisja_CO2, Ostatni_serwis, Data_dodania, Numer_wewnetrzny 
+        $stmt = $this->connect()->prepare("SELECT liczba_drzwi, liczba_miejsc, tapicerka, typ_opon, oryginalny_silnik, emisja_co2, ostatni_serwis, liczba_kluczy, numer_wewnetrzny, samochody.ID, marka, model, cena, rok_produkcji, przebieg, moc_silnika, typ_paliwa, skrzynia, kraj_pochodzenia, kolor, wypadkowosc_id, UNCOMPRESS(zdjecie) as zdjecie, Liczba_drzwi, Liczba_miejsc, Liczba_kluczy, Typ_opon, Tapicerka, Oryginalny_silnik, Emisja_CO2, Ostatni_serwis, Data_dodania, Numer_wewnetrzny 
         FROM samochody, model, marka, rok_produkcji, paliwo, kraj_pochodzenia, kolor, skrzynia_biegow 
         WHERE model.ID = samochody.model_id 
         AND marka.ID = model.ID_marka 
