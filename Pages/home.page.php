@@ -26,9 +26,11 @@ require_once "../Modules/logout-check.module.php";
 
     <h2>Errors and messages:</h2></br>
     <?php
-    if (isset($_GET["error"]))
-        echo "Error: {$_GET['error']}<br>";
-    if (isset($_GET["message"]))
+    if (isset($_GET["message"])) {
         echo "Message: {$_GET['message']}<br>";
+
+        if (isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0')
+            header("location: /Pages/home.page.php");
+    }
     ?>
 </body>

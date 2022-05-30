@@ -1,27 +1,20 @@
 <?php
-    require_once "DBh.class.php";
+require_once "DBh.class.php";
 
-    class Profile extends DBh 
+class Profile extends DBh
+{
+    protected function Get($User)
     {
-        public function GetProfile($User) 
-        {
-            try{
-            return $this->connect()
-                ->query("SELECT `Imie`, `Nazwisko`, `Login`, `E-mail`, `Telefon` FROM `users` WHERE Login = '$User->Login'")
-                ->fetchAll();
-            }
-            catch (PDOException) {
-                $this->error();
-            }
-        } 
-        public function UpdateProfile($User, $Imie, $Nazwisko, $Login, $Email, $Telefon)
-        {
-                
-               $smth = $this->connect()->prepare("UPDATE `users` SET  `Imie` = ?, `Nazwisko` = ?, `Login` = ?, `E-mail` = ?, `Telefon` = ?  WHERE `Login` = ?;");
-               $this->handleExec($smth, [$Imie, $Nazwisko, $Login, $Email, $Telefon, $User->Login]);
-               $smth = null;
-        }
+        $stmt = $this->connect()->prepare("SELECT `Imie`, `Nazwisko`, `Login`, `E-mail`, `Telefon` FROM `users` WHERE ID = ?");
+        $this->handleExec($stmt, [$User->ID]);
+        $fetched = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = null;
+        return $fetched;
     }
-    
-    
-?>
+    protected function Update($User, $Imie, $Nazwisko, $Login, $Email, $Telefon)
+    {
+        $stmt = $this->connect()->prepare("UPDATE `users` SET  `Imie` = ?, `Nazwisko` = ?, `Login` = ?, `E-mail` = ?, `Telefon` = ?  WHERE `Login` = ?;");
+        $this->handleExec($stmt, [$Imie, $Nazwisko, $Login, $Email, $Telefon, $User->Login]);
+        $stmt = null;
+    }
+}

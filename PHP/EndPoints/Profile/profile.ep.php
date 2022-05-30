@@ -1,16 +1,18 @@
 <?php
 
+require_once "../../Functions/logout-check.func.php";
 require_once "../../Classes/Structs/user.struct.php";
-require_once "../../Classes/profile.class.php";
- 
+require_once "../../Classes/profile.controller.php";
 
-@session_start();
+if (logout_check() != LoginState::Loged_In) {
+    header("location: /Pages/home.page.php?message=You got loged out");
+    exit();
+}
 $User = unserialize($_SESSION["User"]);
-$Profile = new Profile();
+$Profile = new ProfileController();
 
-$Profile->UpdateProfile($User, $_POST["imie"], $_POST["nazwisko"], $_POST["login"], $_POST["email"], $_POST["telefon"]);
+$Profile->UpdateProfile($User, $_POST);
 
 $User->Login = $_POST["login"];
 $_SESSION["User"] = serialize($User);
-
-?>
+header("location: /Pages/profile.page.php?Updated=true");
