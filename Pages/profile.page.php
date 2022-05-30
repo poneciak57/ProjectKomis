@@ -1,5 +1,12 @@
 <?php
 require_once "../Modules/logout-check.module.php";
+require_once "../PHP/Classes/profile.class.php";
+require_once "../PHP/Classes/Structs/user.struct.php";
+$User = unserialize($_SESSION["User"]);
+
+$Profile = new Profile();
+$Data = $Profile->GetProfile($User)[0];
+
 ?>
 
 <!DOCTYPE html>
@@ -28,14 +35,16 @@ require_once "../Modules/logout-check.module.php";
                 </div>
 
                 <div id="info">
-                    <input type="text" name="login" placeholder="Login" id="login">
-                    <div id="row">
-                        <input type="text" name="imie" placeholder="Imię" id="imie">
-                        <input type="text" name="nazwisko" placeholder="Nazwisko" id="nazwisko">
-                    </div>
-                    <input type="text" name="email" placeholder="Adres e-mail" id="email">
-                    <input type="text" name="telefon" placeholder="Telefon" id="telefon">
-                    <input type="button" name="zatwierdz" value="Zatwierdź" id="button">
+                    <form action="../PHP/EndPoints/Profile/profile.ep.php" method="post">
+                        <input type="text" name="login" placeholder="Login" id="login" value="<?php echo $Data["Login"]?>">
+                        <div id="row">
+                            <input type="text" name="imie" placeholder="Imię" id="imie" value="<?php echo $Data["Imie"]?>">
+                            <input type="text" name="nazwisko" placeholder="Nazwisko" id="nazwisko" value="<?php echo $Data["Nazwisko"]?>">
+                        </div>
+                        <input type="text" name="email" placeholder="Adres e-mail" id="email" value="<?php echo $Data["E-mail"]?>">
+                        <input type="text" name="telefon" placeholder="Telefon" id="telefon" value="<?php echo $Data["Telefon"]?>">
+                        <input type="submit" name="zatwierdz" value="Zatwierdź" id="button">
+                    </form>
                 </div>
             </div>
         </div>
