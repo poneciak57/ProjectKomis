@@ -48,7 +48,7 @@ if (isset($_GET['Updated'])) {
                 <div id="profile-avatar">
                     <div id="avatar"></div>
                     <p style="margin-bottom:0px;"><?php echo $Data["Login"] ?></p>
-                    <p style="color:lightgray; font-size:var(--normal-font-size); margin-top:0px;">
+                    <p style="color:var(--main-gray); font-size:var(--normal-font-size); margin-top:0px;">
                         <?php
                         if ($User->Privileges == 1)
                             echo 'Admin';
