@@ -1,0 +1,287 @@
+@import url('http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext');
+@import 'variables.styles.css';
+* {
+    font-size: var( --small-font-size);
+}
+
+#img {
+    width: 5vh;
+    height: 5vh;
+    background-color: green;
+    margin-right: 1vh;
+}
+
+.form-name {
+    width: 14vh;
+    height: 4vh;
+    border-bottom: 0.3vh solid rgba(0, 0, 0, 0.2);
+    font-weight: 100;
+    font-size: var(--small-large-font-size);
+    text-align: center;
+    padding: 0vh;
+    position: relative;
+    display: inline-block;
+}
+
+h1 {
+    color: black;
+    font-weight: bold;
+    font-size: var(--large-font-size);
+    margin-top: 1.5vh;
+    margin-bottom: 0vh;
+}
+
+body {
+    background: url("carpark.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0vh;
+    padding: 0vh;
+}
+
+#tlo {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(2.25vh);
+    justify-content: center;
+}
+
+.form {
+    background-color: #F1FAEE;
+    color: rgb(0, 0, 0, 0.7);
+    width: 53vh;
+    height: 35vh;
+    z-index: 1;
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 0.1vh 0.1vh 0.1vh var(--main-lightgray);
+}
+
+#email {
+    border: none;
+    background-color: #F1FAEE;
+    width: 50vh;
+    border-bottom: solid 0.3vh rgba(0, 0, 0, 0.2);
+    font-size: var(--small-normal-font-size);
+    padding: 1vh;
+    padding-left: 0vh;
+}
+
+#email:focus-visible,
+#haslo:focus-visible {
+    outline: none;
+}
+
+select {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+}
+
+#expand {
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    width: 2vh;
+    height: 2vh;
+    z-index: 5;
+    transform: rotate(90deg);
+    margin-bottom: -2vh;
+    margin-left: 0.5vh;
+}
+
+.Dalej {
+    width: 15vh;
+    height: 4.5vh;
+    color: white;
+    font-weight: bold;
+    font-size: var(--small-normal-font-size);
+    background: var(--main-gradient);
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border: none;
+    box-shadow: 0.1vh 0.1vh 0.1vh black;
+    margin-right: 2vh;
+    margin-top: 5vh;
+}
+
+.Dalej:hover {
+    cursor: pointer;
+}
+
+#form-top {
+    display: flex;
+    align-items: center;
+    width: 50vh;
+}
+
+.form-bottom {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-end;
+    font-weight: bold;
+}
+
+.form-more_options {
+    font-size: var(--small-font-size);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    margin: 0vh;
+}
+
+.privacy_policy {
+    background-color: #F1FAEE;
+    color: rgb(0, 0, 0, 0.7);
+    width: 53vh;
+    z-index: 1;
+    padding: 5vh;
+    height: 8vh;
+    padding-bottom: 0vh;
+    padding-top: 0vh;
+    margin-top: 1.5vh;
+    box-shadow: 0.1vh 0.1vh 0.1vh var(--main-lightgray);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: bold;
+    font-size: var(--normal-font-size);
+}
+
+.form-bottom {
+    width: 53vh;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    font-weight: bold;
+    flex-wrap: nowrap;
+}
+
+.form_button {
+    align-self: flex-end;
+}
+
+#imie,
+#nazwisko {
+    border: none;
+    background-color: #F1FAEE;
+    width: 23.25vh;
+    border-bottom: solid 0.3vh rgba(0, 0, 0, 0.2);
+    font-size: var(--small-normal-font-size);
+    padding: 1vh;
+    padding-left: 0vh;
+}
+
+#haslo {
+    display: none;
+}
+
+#haslo {
+    border: none;
+    background-color: #F1FAEE;
+    width: 50vh;
+    border-bottom: solid 0.3vh rgba(0, 0, 0, 0.2);
+    font-size: var(--small-normal-font-size);
+    padding: 1vh;
+    padding-left: 0vh;
+}
+
+#check {
+    display: none;
+}
+
+#back {
+    transform: rotate(180deg);
+}
+
+#register {
+    display: flex;
+    margin: 0vh;
+    align-items: center;
+}
+
+#input {
+    display: flex;
+    flex-flow: wrap;
+}
+
+* {
+    color: black;
+}
+
+#expand2 {
+    transform: rotate(-90deg);
+    height: 4vh;
+    width: 3vh;
+    cursor: pointer;
+}
+
+h3 {
+    color: black;
+    margin: 0vh;
+    padding: 0vh;
+    font-size: var(--normal-font-size);
+}
+
+h2 {
+    font-size: var(--large-font-size);
+}
+
+h1 {
+    font-size: var(--extra-large-font-size);
+}
+
+#create {
+    margin: 0vh;
+}
+
+#show_password {
+    display: none;
+}
+
+#more_options {
+    display: flex;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    margin: 0vh;
+    margin-top: 1vh;
+    font: inherit;
+    color: currentColor;
+    width: 2vh;
+    height: 2vh;
+    border: 0.3vh solid currentColor;
+    border-radius: 0.5vh;
+    transform: translateY(-0.15vh);
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 1vh;
+    height: 1vh;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 2vh 2vh var(--form-control-color);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:hover {
+    cursor: pointer;
+}

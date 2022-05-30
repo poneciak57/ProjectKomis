@@ -15,7 +15,7 @@
         </div>
         <div class="navbar-page" onclick="window.location = 'profile.page.php'">
             <img src="../Sources/user-icon-white.svg" alt="user icon" class="navbar-icons">
-            Mój profil
+            <a href="profile.page.php">Mój profil</a>
         </div>
     </div>
 </nav>

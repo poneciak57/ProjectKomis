@@ -1,5 +1,5 @@
 const page_url = document.location.origin;
-var q = document.querySelectorAll('select'),    
+var q = document.querySelectorAll('select'),
     p = document.querySelectorAll('input');
 
 var currentPage = 1;
@@ -12,14 +12,14 @@ let Filters = {
     "kraj_pochodzenia_id": null,
     "kolor_id": null,
     "wypadkowosc_id": null,
-    
+
     "cena": null,
     "rok_produkcji": null,
     "przebieg": null/*,
     "search_bar": null,*/
 }
 
-let filtersForDisplay = {     
+let filtersForDisplay = {
     "marka": ["Marka: ", ""],
     "model": ["Model: ", ""],
     "paliwo_id": ["Rodzaj paliwa: ", ""],
@@ -43,6 +43,7 @@ function createDictionary() {
     });
     
 }
+
 
 
 function fetch_offers(callback, options) {
@@ -69,30 +70,30 @@ function pageSwitch(a) {
 
 function filters(a) {
     var x = document.getElementById('offers-filters');
-    if(a) x.style.display = 'flex';
+    if (a) x.style.display = 'flex';
     else {
         q = document.querySelectorAll('select');
         p = document.querySelectorAll('input');
         var displayed_filters = "";
         var temp = 0;
         for (let k in Filters) {
-            if(temp >= 7) {
-                Filters[k] = [(p[temp-6].value == '') ? 0 : parseInt(p[temp-6].value), (p[temp-5].value == '') ? 999999999 : parseInt(p[temp-5].value)];
+            if (temp >= 7) {
+                Filters[k] = [(p[temp - 6].value == '') ? 0 : parseInt(p[temp - 6].value), (p[temp - 5].value == '') ? 999999999 : parseInt(p[temp - 5].value)];
                 filtersForDisplay[k][1] = Filters[k];
-                if((p[temp-6].value == '') && (p[temp-5].value == '')) Filters[k] = null;
-                if(Filters[k] != null) displayed_filters += '<div class="offers-mainblock-filter">'+ filtersForDisplay[k][0] + filtersForDisplay[k][1][0] + " - " + filtersForDisplay[k][1][1] + '</div>';
+                if ((p[temp - 6].value == '') && (p[temp - 5].value == '')) Filters[k] = null;
+                if (Filters[k] != null) displayed_filters += '<div class="offers-mainblock-filter">' + filtersForDisplay[k][0] + filtersForDisplay[k][1][0] + " - " + filtersForDisplay[k][1][1] + '</div>';
                 temp += 2;
             } else {
                 Filters[k] = (q[temp].value == 'null' || q[temp].value == '') ? null : [parseInt(q[temp].value)];
-                if(Filters[k] != null) displayed_filters += '<div class="offers-mainblock-filter">'+ filtersForDisplay[k][0] + filtersForDisplay[k][1][Filters[k]] + '</div>';
+                if (Filters[k] != null) displayed_filters += '<div class="offers-mainblock-filter">' + filtersForDisplay[k][0] + filtersForDisplay[k][1][Filters[k]] + '</div>';
                 temp++;
             }
-            
-        }   
+
+        }
         document.getElementById("offers-mainblock-filters-show").innerHTML = displayed_filters;
         x.style.display = 'none';
         console.log(filtersForDisplay);
-        pageSwitch(-currentPage+1);
+        pageSwitch(-currentPage + 1);
     };
 }
 
@@ -100,12 +101,12 @@ function model() {
     var x = document.getElementById("offers-filters-marka"),
         z = document.getElementById("offers-filters-model"),
         y = document.getElementById("select-models");
-    if(x.value != 'null') {
+    if (x.value != 'null') {
         z.style.display = "flex";
         fetch(page_url + '/PHP/EndPoints/Data/modelbyID.EP.php?ID=' + x.value)
-        .then(response => response.text())
-        .then(data => y.innerHTML = "<option value=null class='option-all'>Wszystkie</option>" + data);
-        
+            .then(response => response.text())
+            .then(data => y.innerHTML = "<option value=null class='option-all'>Wszystkie</option>" + data);
+
     }
     else {
         z.style.display = "none";
@@ -115,7 +116,7 @@ function model() {
 }
 
 pageStart = (data) => {
-    
+
     if (!data.loged_in) {
         window.location.href = "home.page.php?message=You got logged out";
     }
@@ -155,17 +156,101 @@ change_pages = (data) => {
 
 }
 
+/**
+ * sends request to server 
+ * to check if user is loged 
+ * if not it will log him out
+ * if yes it will refresh time before logout on server 
+ */
+perform_action = () => {
+    fetch(page_url + '/PHP/EndPoints/Login&Signup/perform_action.EP.php', {
+        method: "GET",
+        mode: "same-origin",
+        credentials: 'same-origin',
+    })
+        .then(response => response.json())
+        .then(data => !data.loged_in ? window.location.href = "home.page.php?message=You got logged out" : null);
+}
+
+/**
+* deletes all elements equals to value
+* and return array 
+* @param {Array} arr
+* @param {Number} value
+* @returns {Array}
+*/
+function arrayRemove(arr, value) {
+
+    return arr.filter(function (element) {
+        return element != value;
+    });
+}
+
+/**
+* add offer to favourite cookie
+* and switch button item to delete button
+* @param {Number} id
+* @param {Image} button
+*/
+add_to_favourites = (id, button) => {
+    if (localStorage.getItem('favourites')) {
+        let favs = JSON.parse(localStorage.favourites);
+        favs.push(id);
+        localStorage.favourites = JSON.stringify(favs);
+    }
+    else {
+        localStorage.setItem('favourites', `[${id}]`)
+    }
+    // console.log(localStorage);
+    button.onclick = function () { delete_from_favourites(id, button) };
+    button.src = "../Sources/heart-icon-red.svg";
+    perform_action();
+}
+/**
+* delete offer from favourite cookie
+* and switch button item to add button
+* @param {Number} id
+* @param {Image} button
+*/
+delete_from_favourites = (id, button) => {
+    if (!localStorage.getItem('favourites')) {
+        localStorage.setItem('favourites', `[]`)
+    }
+    else {
+        let favs = JSON.parse(localStorage.favourites);
+        localStorage.favourites = JSON.stringify(arrayRemove(favs, id));
+    }
+    // console.log(localStorage);
+    button.onclick = function () { add_to_favourites(id, button) };
+    button.src = "../Sources/heart-icon.svg";
+    perform_action();
+}
+/**
+* check if offer with given id is favourite
+* @param {Number} id
+* @returns {boolean}
+*/
+is_favourites = (id) => {
+
+    if (localStorage.getItem('favourites'))
+        return JSON.parse(localStorage.favourites).includes(id);
+
+    localStorage.setItem('favourites', `[]`)
+    return false;
+}
+
 display_offers = (data) => {
     let container = document.getElementById("offers-wrapper-offers");
     container.innerHTML = "";
 
     let ogloszen = "";
-    if(data.QuerriesFound > 4 || data.QuerriesFound == 0) ogloszen = " ogłoszeń";
+    if (data.QuerriesFound > 4 || data.QuerriesFound == 0) ogloszen = " ogłoszeń";
     else if (data.QuerriesFound > 1) ogloszen = " ogłoszenia";
     else ogloszen = " ogłoszenie";
-
     document.getElementById("queries_nr").innerHTML = data.QuerriesFound + ogloszen;
+
     data["Offers"].forEach(offer => {
+        is_favourite = is_favourites(offer.ID);
         container.innerHTML += `<div class="carOffer" value="${offer.ID}" onclick="window.location = 'offers-single.page.php?ID=${offer.ID}'">
         <div class="carOffer-main">
             <div class="carOffer-img">
@@ -183,7 +268,7 @@ display_offers = (data) => {
                     </div>
                 </div>
                 <div class="carOffer-content-right">
-                    <img src="../Sources/heart-icon.svg" alt="heart icon" onclick="">
+                    <img src="../Sources/${is_favourite ? "heart-icon-red" : "heart-icon"}.svg" alt="heart icon" onclick="${is_favourite ? "delete_from_favourites" : "add_to_favourites"}(${offer.ID},this)">
                     <div class="carOffer-content-price">${offer.cena}zł</div>
                 </div>
             </div>
@@ -191,7 +276,7 @@ display_offers = (data) => {
             <hr class="carOffer-line">
         </div>`
     });
-    if(data.QuerriesFound == 0) {
+    if (data.QuerriesFound == 0) {
         container.innerHTML = "<div id='carOffer-error'>Niestety nie znaleziono żadnych ogłoszeń<br><span>Proszę wybrać inne zestawienie filtrów</span></div>"
     }
 }
