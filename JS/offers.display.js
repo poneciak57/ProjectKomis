@@ -26,22 +26,22 @@ let filtersForDisplay = {
     "skrzynia_id": ["Skrzynia biegów: ", ""],
     "kraj_pochodzenia_id": ["Kraj pochodzenia: ", ""],
     "kolor_id": ["Kolor: ", ""],
-    "wypadkowosc_id": ["Wypadkowość: ", ""], //WYPADKOWOSC NIE DZIALA NIE MA W FORM-OPTIONS.CONTROLLER
+    "wypadkowosc_id": ["Wypadkowość: ", ""],
     "cena": ["Cena: ", ""],
     "rok_produkcji": ["Rok produkcji: ", ""],
     "przebieg": ["Przebieg: ", ""]
 }
 
-function createDictionary(a) {
+function createDictionary() {
     fetch(page_url + '/PHP/EndPoints/Data/filters-get.EP.php')
-        .then(response => response.json())
-        .then(data => {
-            for (let k in data) {
-                filtersForDisplay[k][1] = data[k];
-            }
-
-        });
-
+    .then(response => response.json())
+    .then(data => {
+        for (let k in data) {
+            filtersForDisplay[k][1] = data[k];
+        }
+        
+    });
+    
 }
 
 
@@ -131,6 +131,8 @@ pageStart = (data) => {
 Przemyslec zmiane na sposob z tablica
 i oddzielne rozwazanie przypadku klikniecia w liczbe a w strzalke
 */
+
+
 change_pages = (data) => {
     let containerNumbers = document.getElementById("offers-wrapper-pages");
     let pagesAmount = Math.max(1, (Math.ceil(data.QuerriesFound / 10)));
@@ -249,7 +251,7 @@ display_offers = (data) => {
 
     data["Offers"].forEach(offer => {
         is_favourite = is_favourites(offer.ID);
-        container.innerHTML += `<div class="carOffer" value="${offer.ID}">
+        container.innerHTML += `<div class="carOffer" value="${offer.ID}" onclick="window.location = 'offers-single.page.php?ID=${offer.ID}'">
         <div class="carOffer-main">
             <div class="carOffer-img">
                 <img src="data:image/jpeg;base64,${offer.zdjecie}" class="image" />
