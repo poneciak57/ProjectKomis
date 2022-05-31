@@ -35,7 +35,7 @@ abstract class DBh
         try {
             $stmt->execute($args);
         } catch (PDOException $e) {
-            // $this->debug($e);
+            $this->debug($e);
             $stmt = null;
             $this->error();
         }

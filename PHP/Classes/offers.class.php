@@ -37,7 +37,7 @@ class Offers extends DBh
     protected function Add(array $offer)
     {
         $stmt = $this->connect()->prepare("INSERT INTO `samochody`(`model_id`, `cena`, `rok_produkcji_id`, `przebieg`, `moc_silnika`, `paliwo_id`, `skrzynia_id`, `kraj_pochodzenia_id`, `kolor_id`, `Liczba_drzwi`, `Liczba_miejsc`, `Typ_opon`, `Tapicerka`, `Oryginalny_silnik`, `Emisja_CO2`, `Ostatni_serwis`, `Data_dodania`, `Liczba_kluczy`, `Numer_wewnetrzny`, `wypadkowosc_id`, `zdjecie`) 
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,COMPRESS(?))");
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,COMPRESS(?))");
         $this->handleExec($stmt, $offer);
         $stmt = null;
     }

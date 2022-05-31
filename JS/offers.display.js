@@ -12,11 +12,9 @@ let Filters = {
     "kraj_pochodzenia_id": null,
     "kolor_id": null,
     "wypadkowosc_id": null,
-
     "cena": null,
     "rok_produkcji": null,
-    "przebieg": null/*,
-    "search_bar": null,*/
+    "przebieg": null
 }
 
 let filtersForDisplay = {
@@ -105,7 +103,6 @@ function model() {
         fetch(page_url + '/PHP/EndPoints/Data/modelbyID.EP.php?ID=' + x.value)
             .then(response => response.text())
             .then(data => y.innerHTML = "<option value=null class='option-all'>Wszystkie</option>" + data);
-
     }
     else {
         z.style.display = "none";

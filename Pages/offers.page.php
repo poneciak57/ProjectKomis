@@ -2,6 +2,9 @@
 <html lang="pl">
 <?php
 require_once "../Modules/logout-check.module.php";
+require_once "../PHP/Classes/Structs/user.struct.php";
+
+$is_admin = (unserialize($_SESSION["User"])->Privileges == 1);
 ?>
 
 <head>
@@ -99,30 +102,23 @@ require_once "../Modules/logout-check.module.php";
         </div>
     </div>
     <?php
-    include "../Modules/navbar.module.php";
+        include "../Modules/navbar.module.php";
     ?>
-    <!--<div id="offers-searchBar-block">
-        
-        <div id="offers-searchBar">
-            
-            <img src="../Sources/search-icon.svg" alt="search icon" id="offers-searchBar-icon">
-            <form id="offers-searchBar-form" method="post">
-                <input id="offers-searchBar-searchInput" placeholder="Szukaj pośród <?php
-                                                                                    require_once "../PHP/Classes/statistics.class.php";
-                                                                                    $offersCount = new Statistics();
-                                                                                    print $offersCount->Offers();
-                                                                                    ?> ogłoszeń">
-                <hr id="offers-searchBar-hr">
-                <input type="submit" id="offers-searchBar-Search" value="Szukaj">
-            </form>
-        </div>
-    </div>-->
     <div id="offers-mainblock">
         <div id="offers-mainblock-filters">
             <div id="offers-mainblock-filters-main">
-                <div id="offers-mainblock-filters-manage" onclick="filters(true)">
-                    <img src="../Sources/filter-icon.svg" alt="filter icon">
-                    Zarządzaj filtrami
+                <div style="display: flex;">
+                    <div id="offers-mainblock-filters-manage" onclick="filters(true)">
+                        <img src="../Sources/filter-icon.svg" alt="filter icon">
+                        Zarządzaj filtrami
+                    </div>
+                    <?php 
+                        if($is_admin) {
+                            echo "<div id=\"offers-mainblock-addoffer\" onclick=\"window.location = 'admin-offers-single-add.page.php'\"><img src=\"../Sources/plus-icon.svg\" alt=\"filter icon\">Dodaj ofertę</div>";
+                        }
+                    ?>
+                    
+                    
                 </div>
                 <div id="offers-mainblock-filters-foundCount">Znaleźliśmy <span id="queries_nr"></span></div>
             </div>
