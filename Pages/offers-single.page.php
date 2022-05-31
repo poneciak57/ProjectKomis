@@ -20,7 +20,7 @@ $offer = $OC->getSingle();
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="">
-    <title>Nazwa Firmy - Nazwa Oferty</title>
+    <title>AutoStop - <?php echo $offer["marka"] . " " . $offer["model"] ?></title>
     <link href="../Css/navbar.module.styles.css" rel="stylesheet">
     <link href="../Css/footer.module.styles.css" rel="stylesheet">
     <link href="../Css/offers-single.page.styles.css" rel="stylesheet">

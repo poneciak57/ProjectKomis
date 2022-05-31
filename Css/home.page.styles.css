@@ -26,7 +26,7 @@
 #home-video-quote {
     position: absolute;
     right: 10vh;
-    bottom: 10vh;
+    bottom: 5vh;
     font-size: var(--huge-font-size);
     color: white;
 }

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="">
-    <title>Nazwa Firmy - Oferty</title>
+    <title>AutoStop - Strona główna</title>
     <link href="../Css/navbar.module.styles.css" rel="stylesheet">
     <link href="../Css/footer.module.styles.css" rel="stylesheet">
     <link href="../Css/home.page.styles.css" rel="stylesheet">
