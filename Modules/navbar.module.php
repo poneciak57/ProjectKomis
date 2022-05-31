@@ -15,6 +15,7 @@
             <img src="../Sources/user-icon-white.svg" alt="user icon" class="navbar-icons">
             Mój profil
         </div>
+
         <div class="navbar-page" onclick="window.location = '../PHP/EndPoints/Login&Signup/logout.EP.php'">
             Wyloguj
         </div>

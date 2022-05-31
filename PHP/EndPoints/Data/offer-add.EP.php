@@ -1,24 +1,23 @@
 <?php
 
-header('Content-Type: application/json');
 require_once "../../Functions/logout-check.func.php";
 require_once "/ProjectKomis/PHP/Classes/Structs/user.struct.php";
 require_once "../../Classes/offers.controller.php";
 
 if (!isset($_POST['submit'])) {
-    echo json_encode(['error' => 'Bad request']);
+    header("location: /Pages/error.page.php?error=Wrong request");
     exit();
 }
 if (logout_check() != LoginState::Loged_In) {
-    echo json_encode(['error' => 'U are not loged in', 'loged_in' => false]);
+    header("location: /Pages/home.page.php?message=You got loged out");
     exit();
 }
 if (unserialize($_SESSION["User"])->Privileges != 1) {
-    echo json_encode(['error' => 'Wrong prvilileges', 'loged_in' => true]);
+    header("location: /Pages/offers-single.page.php?ID={$_GET['ID']}&message=Wrong privilages");
     exit();
 }
 
 $OC = new OffersController($_POST);
 $OC->addOffer(imgData: file_get_contents($_FILES['zdjecie']['tmp_name']));
 
-echo json_encode(['error' => 'none', 'loged_in' => true]);
+header("location: /Pages/offers.page.php?message=Added new offer succesfully");
