@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Logowanie</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Css/login.page.styles">
     <style>
         .form-more_options a {
             color: #117FBD;
@@ -35,18 +35,19 @@
             <div id="create">
 
             </div>
+            <form action="logowanie.html" method="get">
+                <input type="text" name="login" placeholder="Login" id="email"><br>
+                <input type="password" name="password" placeholder="Hasło" id="haslo">
+                <div class="form-bottom">
 
-            <input type="text" name="email" placeholder="Login" id="email"><br>
-            <input type="password" name="haslo" placeholder="Hasło" id="haslo">
-            <div class="form-bottom">
+                    <div class="form-more_options" id="form-more_options">
+                        Nie masz konta? <a href="registracja.html">&nbsp;Zarejestruj się!</a>
+                    </div>
+                    <div class="form_button" id="form_button">
+                        <button type="button" onclick="next()" id="przycisk" class="Dalej">Dalej</button>
 
-                <div class="form-more_options" id="form-more_options">
-                    Nie masz konta? <a href="registracja.html">&nbsp;Zarejestruj się!</a>
-                </div>
-                <div class="form_button" id="form_button">
-                    <button onclick="next() " class="Dalej">Dalej</button>
-                </div>
-
+                    </div>
+            </form>
             </div>
         </div>
 
@@ -59,6 +60,6 @@
 
 
 </body>
-<script src="script2.js"></script>
+<script src="../../JS/script2.js"></script>
 
 </html>

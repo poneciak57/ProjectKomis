@@ -11,10 +11,10 @@
         <p></p>
         <p>Zadzwoń do nas: +48 111 222 333</p>
         <a href="profile.page.php">Moje Konto</a>
-        <a href="/ProjectKomis/Documents/Polityki prywatności w sklepie internetowym- wzór.pdf">Polityka prywatności</a>
+        <a href="../Documents/Polityka_prywatnosci.pdf">Polityka prywatności</a>
         <div id="footer-finduson-images">
             <a href=""><img src="../Sources/instagram-icon.svg" class="footer-finduson-image" alt="instagram icon"></a>
-            <a href=""><img src="../Sources/github-icon.svg" class="footer-finduson-image" alt="github icon"></a>
+            <a href="https://github.com/poneciak57/ProjectKomis"><img src="../Sources/github-icon.svg" class="footer-finduson-image" alt="github icon"></a>
             <a href=""><img src="../Sources/facebook-icon.svg" class="footer-finduson-image" alt="facebook icon"></a>
             <a href=""><img src="../Sources/twitter-icon.svg" class="footer-finduson-image" alt="twitter icon"></a>
         </div>

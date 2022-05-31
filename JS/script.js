@@ -1,3 +1,11 @@
+const strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{12,})')
+const mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
+let timeout;
+var password = document.getElementById("haslo");
+var strange = document.getElementById("strangebar");
+var pasek = document.getElementById("pasek");
+var opis = document.getElementById("opis_id");
+
 function next() {
     var email = document.getElementById("email").value;
     var input = document.getElementById("email");
@@ -5,8 +13,8 @@ function next() {
     var utworz = document.getElementById("create");
     var show_password = document.getElementById("show_password");
     var more_options = document.getElementById("more_options");
-    var pass = document.getElementById("haslo");
-    var haslo = document.getElementById("haslo").value;
+
+    var form_button = document.getElementById("form_button");
 
     if (email.length == 0) {
 
@@ -17,33 +25,61 @@ function next() {
         utworz.style.display = "flex";
         utworz.innerHTML = "<h1>Utwórz hasło</h1>";
         input.style.display = "none";
-        pass.style.display = "flex";
+        password.style.display = "flex";
         more_options.style.display = "none";
         show_password.style.display = "flex";
-
-        if (haslo.length == 0) {
-            console.log(haslo.length);
-            pass.placeholder = "Podaj hasło!";
-        } else {
-            CheckPassword();
-        }
-
-
+        form_button.innerHTML = '<input type="submit" value="Dalej" class="Dalej">';
 
     }
 }
 
-function CheckPassword() {
 
-    var passw = /[A-Z]/;
-    var passw2 = /[a-z]/;
 
-    if (document.getElementById("haslo").value.match(passw) && document.getElementById("haslo").value.match(passw2)) {
-        return true;
+passbar = (x) => {
+
+    if (strongPassword.test(x)) {
+        pasek.style.backgroundColor = "lime"
+        opis.textContent = 'Strong'
+        pasek.style.width = "30vh";
+    } else if (mediumPassword.test(x)) {
+        pasek.style.backgroundColor = 'gold'
+        opis.textContent = 'Medium'
+        pasek.style.width = "20vh";
     } else {
+        pasek.style.backgroundColor = 'crimson'
+        opis.textContent = 'Weak'
+        pasek.style.width = "10vh";
+    }
+}
+
+submit1 = (e) => {
+
+    var haslo = document.getElementById("haslo").value;
+
+    if (haslo.length == 0) {
+        e.preventDefault();
+        password.placeholder = "Podaj hasło!";
         return false;
     }
 }
+password.addEventListener("input", () => {
+
+
+    strange.style.display = 'flex'
+    clearTimeout(timeout);
+
+
+
+    timeout = setTimeout(() => passbar(password.value), 1);
+
+
+
+    if (password.value.length !== 0) {
+        strange.style.display != 'flex'
+    } else {
+        strange.style.display = 'none'
+    }
+});
 
 function pokaz() {
     var haslo = document.getElementById("haslo");

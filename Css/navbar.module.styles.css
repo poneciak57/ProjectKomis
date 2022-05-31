@@ -17,6 +17,7 @@
     font-size: var(--small-normal-font-size);
     height: fit-content;
     margin-left: var(--distance-from-border);
+    cursor: pointer;
 }
 
 #navbar-logo-image {
