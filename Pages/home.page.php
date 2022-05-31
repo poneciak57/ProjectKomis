@@ -1,5 +1,5 @@
 <?php
-require_once "../Modules/logout-check.module.php";
+require_once "../PHP/Functions/logout-check.func.php";
 ?>
 
 <head>
@@ -9,8 +9,7 @@ require_once "../Modules/logout-check.module.php";
 <body>
     <h1>Home Page</h1></br>
     <?php
-    @session_start();
-    if (isset($_SESSION["User"])) {
+    if (logout_check() == LoginState::Loged_In) {
         require_once "../PHP/Classes/Structs/user.struct.php";
         $User = unserialize($_SESSION["User"]);
         echo "Hello: {$User->Login}</br>";
