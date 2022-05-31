@@ -48,7 +48,9 @@ body {
 #avatar {
     width: 30vh;
     height: 30vh;
-    background-color: gray;
+    background: url('../Sources/avatar.png');
+    background-size: cover;
+    background-position-x: center;
     border-radius: 50vh;
     display: flex;
     justify-content: center;
@@ -80,13 +82,9 @@ input {
     padding: 2vh;
     padding-left: 1vh;
     padding-right: 0vh;
-    border-color: var(--main-darkgray);
+    border-color: #3f3f3f;
     border-style: solid;
     border: 0.1vh solid var(--main-darkgray);
-}
-
-input::placeholder {
-    color: black;
 }
 
 #login,
@@ -97,7 +95,7 @@ input::placeholder {
 
 #imie,
 #nazwisko {
-    width: 47%;
+    width: 30vh;
 }
 
 #nazwisko {
@@ -114,10 +112,13 @@ input::placeholder {
     border: none;
     margin-bottom: 5vh;
     background: var(--main-gradient);
-    padding: 0.5vh;
+    padding: 1.8vh;
     padding-left: 0vh;
     padding-right: 0vh;
+    margin-right: -1vh;
     font-size: var(--small-large-font-size);
+    float: right;
+    cursor: pointer;
 }
 
 #email:focus-visible,
@@ -135,9 +136,7 @@ input::placeholder {
 }
 
 #avatar:hover {
-    background-color: rgb(0, 0, 0, 0.75);
-
-
+    filter: brightness(70%);
 }
 
 #avatar:hover::after {

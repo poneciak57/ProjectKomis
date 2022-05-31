@@ -1,5 +1,4 @@
 @import "variables.styles.css";
-
 #offer-main-div {
     display: flex;
     align-items: center;
@@ -11,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 65vh;
     width: 100%;
     backdrop-filter: blur(2vh);
 }
@@ -24,7 +24,6 @@
     height: 65vh;
     top: 10vh;
     filter: brightness(80%);
-    
 }
 
 #offer-image {
@@ -98,7 +97,9 @@
     padding: 3.5vh;
 }
 
-#offer-description-main, #offer-description-title, #offer-description {
+#offer-description-main,
+#offer-description-title,
+#offer-description {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,9 +114,8 @@
 #offer-description {
     width: 60%;
     background-color: white;
-    height: auto;;
+    height: auto;
 }
-
 
 #offer-description-title {
     font-size: var(--extra-large-font-size);
@@ -129,7 +129,8 @@
     table-layout: fixed;
 }
 
-td, th {
+td,
+th {
     border-bottom: 0.3vh solid var(--main-gray);
     padding: 2vh 2vh;
 }
@@ -143,6 +144,6 @@ th {
     text-align: left;
 }
 
-#fav-heart-container{
+#fav-heart-container {
     margin-left: 3vh;
 }

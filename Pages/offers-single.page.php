@@ -52,7 +52,7 @@ $offer = $OC->getSingle();
                     <div id="offer-maininfo-price-text-monthly">od <?php echo round($offer["cena"] / 60, 2) ?> zł miesięcznie <br><span style="font-size: var(--small-font-size); float: right;">okres leasingu: 5 lat</span></div>
                 </div>
                 <div id="offer-maininfo-price-buttondiv">
-                    <button value="Kup teraz" id="offer-maininfo-price-button">Kup teraz</button>
+                    <?php echo (($is_admin) ? "<button value='Edytuj' id='offer-maininfo-price-button' onclick='window.location = \"admin-offers-single.page.php?ID={$offer['ID']}\"'>Edytuj</button>" : '<button value="Kup teraz" id="offer-maininfo-price-button">Kup teraz</button>');?>
                     <a href="" id="offer-maininfo-price-contact">Skontaktuj się z nami</a>
                 </div>
             </div>
