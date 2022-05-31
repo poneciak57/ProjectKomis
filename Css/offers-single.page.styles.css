@@ -142,3 +142,7 @@ th {
     font-size: var(--large-font-size);
     text-align: left;
 }
+
+#fav-heart-container{
+    margin-left: 3vh;
+}

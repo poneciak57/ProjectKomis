@@ -4,11 +4,16 @@
     font-size: var( --small-font-size);
 }
 
-#img {
-    width: 5vh;
-    height: 5vh;
-    background-color: green;
+#img > img {
+    width: 4.5vh;
+    height: auto;
     margin-right: 1vh;
+    
+}
+
+.privacy_policy:hover {
+    filter: brightness(90%);
+    cursor: pointer;
 }
 
 .form-name {
@@ -32,13 +37,14 @@ h1 {
 }
 
 body {
-    background: url("carpark.jpg");
+    background: url("../Sources/carpark.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     margin: 0vh;
     padding: 0vh;
+    
 }
 
 #tlo {
@@ -133,7 +139,7 @@ select {
     font-size: var(--small-font-size);
     display: flex;
     align-items: flex-start;
-    flex-direction: row;
+    flex-direction: column;
     margin: 0vh;
 }
 
@@ -284,4 +290,25 @@ input[type="checkbox"]:checked::before {
 
 input[type="checkbox"]:hover {
     cursor: pointer;
+}
+
+#create {
+    display: flex;
+    color: red;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#pasek {
+    width: 10vh;
+    border-radius: 2vh;
+    height: 1vh;
+    background-color: crimson;
+}
+
+#strangebar {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    font-weight: bolder;
 }

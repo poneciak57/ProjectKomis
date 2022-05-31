@@ -1,7 +1,8 @@
 <?php
-if (isset($_POST['submit'])) {
+echo var_dump($_POST);
+if (isset($_POST['Login'])) {
 
-    $login = $_POST['login'];
+    $login = $_POST['Login'];
     $password = $_POST['password'];
 
     require_once "../../Classes/signup.controller.php";
@@ -19,4 +20,6 @@ if (isset($_POST['submit'])) {
         $signup->signupUser();
     }
     header("location: login.EP.php?login={$login}&password={$password}");
+    
 }
+?>

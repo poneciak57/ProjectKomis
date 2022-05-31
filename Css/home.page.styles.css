@@ -1,3 +1,8 @@
+
+* {
+    z-index: 1;
+}
+
 #navbar {
     background: transparent;
     position: absolute;
@@ -10,10 +15,6 @@
 
 .navbar-page {
     display: none;
-}
-
-#navbar-page-login {
-    display: flex;
 }
 
 #home-video {
@@ -150,4 +151,12 @@
     position: absolute;
     width: 45vh;
     margin-left: 45vh;
+}
+#home-video {
+    overflow: hidden;
+}
+video {
+    height: 115vh;
+    filter: brightness(30%);
+    z-index: 0;
 }
