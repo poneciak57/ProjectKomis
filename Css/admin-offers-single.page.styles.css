@@ -18,6 +18,7 @@ input:focus-visible {
     cursor: pointer;
 }
 
+
 #offer-image-div {
     background-color: var(--main-gray);
 }
