@@ -34,14 +34,13 @@ let filtersForDisplay = {
 
 function createDictionary() {
     fetch(page_url + '/PHP/EndPoints/Data/filters-get.EP.php')
-    .then(response => response.json())
-    .then(data => {
-        for (let k in data) {
-            filtersForDisplay[k][1] = data[k];
-        }
-        
-    });
-    
+        .then(response => response.json())
+        .then(data => {
+            for (let k in data) {
+                filtersForDisplay[k][1] = data[k];
+            }
+
+        });
 }
 
 
