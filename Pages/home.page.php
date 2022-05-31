@@ -1,5 +1,9 @@
+<?php
+require_once "../PHP/Functions/logout-check.func.php";
+?>
 <!DOCTYPE html>
 <html lang="pl">
+
 
 <head>
     <meta charset="UTF-8">
@@ -12,6 +16,7 @@
 </head>
 
 <body>
+
     <?php include "../Modules/navbar.module.php" ?>
     <div id="home-video">
         <span id="home-video-quote">Z naszymi samochodami zajedziesz najdalej</span>

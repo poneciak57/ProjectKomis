@@ -62,6 +62,8 @@ class OffersController extends Offers
         AND skrzynia_biegow.ID = skrzynia_id
         AND rok_produkcji.ID = rok_produkcji_id ";
 
+
+
         foreach ($this->request["specs"] as $key => $value) {
             if ($value != null) {
                 array_push($ret["args"], ...$value);
