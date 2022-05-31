@@ -10,7 +10,7 @@
         <h1>Znajdziesz nas na</h1>
         <p></p>
         <p>Zadzwoń do nas: +48 111 222 333</p>
-        <a href="">Moje Konto</a>
+        <a href="profile.page.php">Moje Konto</a>
         <a href="/ProjectKomis/Documents/Polityki prywatności w sklepie internetowym- wzór.pdf">Polityka prywatności</a>
         <div id="footer-finduson-images">
             <a href=""><img src="../Sources/instagram-icon.svg" class="footer-finduson-image" alt="instagram icon"></a>
@@ -20,7 +20,7 @@
         </div>
         <p></p>
         <a href="">Kontakt</a>
-        <a href="">Oferta</a>
+        <a href="offers.page.php">Oferta</a>
         <a href="">Dane firmy</a>
     </div>
     <div id="footer-bottom-line">
