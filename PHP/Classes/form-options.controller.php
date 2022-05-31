@@ -7,7 +7,7 @@ class OptionsController extends Options
 
     public function Models(int $brand_id, bool $pack = false): array | null
     {
-        return $pack ? $this->pack( $this->getOptions('model', 'model')) : $this->display($this->getOptions('model', 'model', " WHERE ID_marka = $brand_id "));
+        return $pack ? $this->pack($this->getOptions('model', 'model')) : $this->display($this->getOptions('model', 'model', " WHERE ID_marka = $brand_id "));
     }
     public function Brands(bool $pack = false): array | null
     {
@@ -39,6 +39,11 @@ class OptionsController extends Options
         $options = $this->getOptions('wypadkowosc', 'wypadkowosc');
         return $pack ? $this->pack($options) : $this->display($options);
     }
+    public function Year(bool $pack = false): array | null
+    {
+        $options = $this->getOptions('rok_produkcji', 'rok_produkcji');
+        return $pack ? $this->pack($options) : $this->display($options);
+    }
     private function display(array $options)
     {
         foreach ($options as $value) {
@@ -51,12 +56,12 @@ class OptionsController extends Options
         return $pack ? $this->pack($options) : $this->display($options);
     }
 
-    private function pack(array $options): array {
+    private function pack(array $options): array
+    {
         $packet = [];
         foreach ($options as $value) {
             $value->pack($packet);
         }
         return $packet;
     }
-    
 }
