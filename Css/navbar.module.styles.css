@@ -28,8 +28,7 @@
 
 #navbar-pages {
     display: flex;
-    justify-content: space-between;
-    width: 50vh;
+    justify-content: flex-end;
     margin-right: var(--distance-from-border);
 }
 
@@ -42,12 +41,17 @@
 .navbar-page {
     display: flex;
     align-items: center;
+    margin-left: 3vh;
 }
 
 .navbar-page:hover {
     text-decoration: none;
     cursor: pointer;
     opacity: 0.8;
+}
+
+#navbar-page-login {
+    display: none;
 }
 
 #navbar-myprofile-arrow {

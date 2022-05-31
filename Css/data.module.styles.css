@@ -1,0 +1,21 @@
+@import "variables.styles.css";
+
+body {
+    background-color: var(--main-lightgray);
+}
+
+#article-section
+{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    width: 60%;
+    box-sizing: border-box;
+    font-size: var(--normal-font-size);
+}
+h1
+{
+    font-size: 5vh;
+}

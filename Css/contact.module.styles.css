@@ -1,0 +1,62 @@
+@import "variables.styles.css";
+
+body {
+    background-color: var(--main-lightgray);
+}
+
+#article-section
+{
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    width: 60%;
+    box-sizing: border-box;
+    font-size: var(--normal-font-size);
+}
+h1
+{
+    font-size: 5vh;
+}
+#name-block, #phone-block, #email-block, #text-block
+{
+    float: left;
+}
+#input-section
+{
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#nameid, #phoneid, #emailid
+{
+    border-style: none;
+    width: 36vh;
+    border-radius: 0.3vh;
+    font-size: var(--normal-font-size);
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 0vh;
+    padding-right: 0vh;
+}
+#textid
+{
+    border-style: none;
+    width: 121vh;
+    padding-top: 0vh;
+    padding-bottom: 9vh;
+    padding-left: 0vh;
+    padding-right: 0vh;
+    border-radius: 0.3vh;
+    font-size: var(--normal-font-size);
+    resize: none;
+}
+#phone-block, #email-block
+{
+    margin-left: 6.5vh;
+}
+#nameid::placeholder, #phoneid::placeholder, #emailid::placeholder, #textid::placeholder
+{
+    font-size: var(--small-normal-font-size);
+}

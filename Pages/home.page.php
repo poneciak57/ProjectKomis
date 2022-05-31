@@ -1,35 +1,93 @@
 <?php
 require_once "../PHP/Functions/logout-check.func.php";
 ?>
+<!DOCTYPE html>
+<html lang="pl">
+
 
 <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="">
+    <title>Nazwa Firmy - Oferty</title>
+    <link href="../Css/navbar.module.styles.css" rel="stylesheet">
+    <link href="../Css/footer.module.styles.css" rel="stylesheet">
+    <link href="../Css/home.page.styles.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <h1>Home Page</h1></br>
-    <?php
-    if (logout_check() == LoginState::Loged_In) {
-        require_once "../PHP/Classes/Structs/user.struct.php";
-        $User = unserialize($_SESSION["User"]);
-        echo "Hello: {$User->Login}</br>";
-        echo '<a href="offers.page.php">Check our offers.</a></br>';
-        echo '<form method="GET" action="../PHP/EndPoints/Login&Signup/logout.EP.php"> <input type="submit" value="log out"></form>';
-    } else {
-        echo '<a href="login.page.php">Zaloguj sie</a>';
-    }
-    ?>
 
-    <?php //include_once "../Modules/form-options.module.php" //do testow formularza jako embed/module
-    ?>
-
-    <h2>Errors and messages:</h2></br>
-    <?php
-    if (isset($_GET["message"])) {
-        echo "Message: {$_GET['message']}<br>";
-
-        if (isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0')
-            header("location: /Pages/home.page.php");
-    }
-    ?>
+    <?php include "../Modules/navbar.module.php" ?>
+    <div id="home-video">
+        <span id="home-video-quote">Z naszymi samochodami zajedziesz najdalej</span>
+    </div>
+    <div id="home-benefits">
+        <div id="home-benefits-title">
+            <h1>Zakup samochodu używanego</h1>
+            <hr>
+        </div>
+        <div id="home-benefits-blocks">
+            <div class="home-benefits-block">
+                <img src="../Sources/tire-icon.svg" alt="tire icon">
+                <h1>Wygodnie</h1>
+                <hr>
+                <div id="home-benefits-block-text">
+                W prosty sposób kupujesz swój samochód online. Następnie my dostarczamy go pod Twój dom – i to w całej Polsce.
+                </div>
+            </div>
+        
+            <div class="home-benefits-block">
+            <img src="../Sources/tire-icon.svg" alt="tire icon">
+                <h1>Bezpiecznie</h1>
+                <hr>
+                <div id="home-benefits-block-text">
+                Z nami jesteś bezpieczny przez cały czas – z 14-dniowym prawem do zwrotu oraz 12-miesięczną gwarancją.
+                </div>
+            </div>
+            <div class="home-benefits-block">
+                <img src="../Sources/tire-icon.svg" alt="tire icon">
+                <h1>Indywidualnie</h1>
+                <hr>
+                <div id="home-benefits-block-text">
+                Z nami masz zawsze dowolność wyboru. Od finansowania po zakres gwarancji, to Ty składasz zamówienie wedle własnych życzeń.
+                </div>
+            </div>
+        </div>
+        <div id="home-check-offer">
+            <h1>Sprawdź naszą ofertę</h1>
+            <button onclick="">Zaloguj się</button>
+        </div>
+    </div>
+    <div id="home-statistics-div">
+        <div id="home-statistics">
+            <img src="../Sources/grid-spacing.svg" id="home-statistics-grid-spacing">
+            <div class="home-statistics-block">
+                <img src="../Sources/user-icon.svg" alt="user icon">
+                <div class="home-statistics-block-text">
+                    Zaufało nam już<br><span>0 osób</span>
+                </div>
+            </div>
+            <div class="home-statistics-block">
+                <div class="home-statistics-block-text">
+                    Odwiedzin strony<br><span>0</span>
+                </div>
+                <img src="../Sources/eye-icon.svg" alt="eye icon">
+            </div>
+            <div class="home-statistics-block">
+                <img src="../Sources/car-icon.svg" alt="car icon">
+                <div class="home-statistics-block-text" style="margin-right: 5vh;">
+                    Liczba ofert<br><span>0</span>
+                </div>
+            </div>
+            <div class="home-statistics-block">
+                <div class="home-statistics-block-text" style="margin-left: 2vh;">
+                    Ocena klientów<br><span>0/0</span>  
+                </div>
+                <img src="../Sources/star-icon.svg" alt="star icon">
+            </div>
+        </div>
+    </div>
+    <?php include "../Modules/footer.module.php" ?>
 </body>
+
+</html>

@@ -10,7 +10,9 @@
     --small-large-font-size: 3vh;
     --large-font-size: 3.5vh;
     --extra-large-font-size: 4vh;
+    --small-huge-font-size: 4.5vh;
     --huge-font-size: 5vh;
+    --mega-huge-font-size: 6vh;
 
     /*COLORS*/
     --main-gradient: linear-gradient(90deg, rgb(87 3 118) 0%, rgb(77 9 133) 17%, rgb(52, 32, 119) 41%, rgb(16 23 100) 67%, rgb(1 10 112) 86%, rgb(24 34 161) 100%);;
