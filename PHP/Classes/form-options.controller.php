@@ -45,6 +45,11 @@ class OptionsController extends Options
             echo $value->display();
         }
     }
+    public function Year(bool $pack = false): array | null
+    {
+        $options = $this->getOptions('rok_produkcji', 'rok_produkcji');
+        return $pack ? $this->pack($options) : $this->display($options);
+    }
 
     private function pack(array $options): array {
         $packet = [];

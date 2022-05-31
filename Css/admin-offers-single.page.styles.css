@@ -18,8 +18,8 @@ input:focus-visible {
     cursor: pointer;
 }
 
-#offer-image-div::after {
-    content: var(--content);
+#offer-image-div {
+    background-color: var(--main-gray);
 }
 
 #zdjecie {
@@ -29,4 +29,26 @@ input:focus-visible {
 #offer-maininfo input {
     font-size: var(--extra-large-font-size);
     width: 15vh;
+}
+
+#offer-maininfo-title-model {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+select {
+    background-color: transparent;
+    width: 15vh;
+    z-index: 100000;
+    border: none;
+    border-bottom: solid rgb(0, 0, 0, 0.3) 0.2vh;
+    font-size: var(--small-normal-font-size);
+    padding: 0vh;
+}
+
+#offer-maininfo-price {
+    display: flex;
+    align-items: center;
+    margin-left: 30%;
 }

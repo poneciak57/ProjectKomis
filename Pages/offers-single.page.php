@@ -52,8 +52,8 @@ $offer = $OC->getSingle();
                     <div id="offer-maininfo-price-text-monthly">od <?php echo round($offer["cena"] / 60, 2) ?> zł miesięcznie <br><span style="font-size: var(--small-font-size); float: right;">okres leasingu: 5 lat</span></div>
                 </div>
                 <div id="offer-maininfo-price-buttondiv">
-                    <?php echo (($is_admin) ? "<button value='Edytuj' id='offer-maininfo-price-button' onclick='window.location = \"admin-offers-single.page.php?ID={$offer['ID']}\"'>Edytuj</button>" : '<button value="Kup teraz" id="offer-maininfo-price-button">Kup teraz</button>');?>
-                    <a href="" id="offer-maininfo-price-contact">Skontaktuj się z nami</a>
+                    <?php echo (($is_admin) ? "<button style='width: 12.5vh; height: 5vh; font-size: var(--small-normal-font-size); margin-bottom: 0vh;' value='Edytuj' id='offer-maininfo-price-button' onclick='window.location = \"admin-offers-single.page.php?ID={$offer['ID']}\"'>Edytuj</button><button style='width: 12.5vh; height: 5vh; font-size: var(--small-normal-font-size)' value='Kup teraz' id='offer-maininfo-price-button' onclick=\"window.location = '../PHP/Endpoints/Data/offer-delete.EP.php?ID={$offer['ID']}'\">Usuń</button>" : '<button value="Kup teraz" id="offer-maininfo-price-button">Kup teraz</button>');?>
+                    <a href="contact.page.php" id="offer-maininfo-price-contact">Skontaktuj się z nami</a>
                 </div>
             </div>
         </div>
@@ -137,8 +137,8 @@ $offer = $OC->getSingle();
                 <tr>
                     <td colspan="1">Liczba kluczy</td>
                     <td><?php echo $offer["liczba_kluczy"] ?></td>
-                    <td></td>
-                    <td></td>
+                    <td>Wypadkowość</td>
+                    <td><?php echo $offer["wypadkowosc_id"]?></td>
                 </tr>
             </table>
 

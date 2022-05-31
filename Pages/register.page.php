@@ -26,7 +26,9 @@
             <form method="POST" onsubmit="return submit1(event)" action="../PHP/EndPoints/Login&Signup/signup.EP.php">
                 <div id="input">
                     <input type="text" name="Login" placeholder="Login" id="email"><br>
-                    <input type="password" name="haslo" id="haslo" placeholder="Hasło" value="">
+
+                    <input type="password" name="password" id="haslo" placeholder="Hasło" value="">
+
 
                 </div>
                 <div class="form-bottom">
@@ -56,6 +58,7 @@
                         <button type="button" onclick="next() " class="Dalej">Dalej</button>
                     </div>
             </form>
+
             </div>
 
 
@@ -66,6 +69,7 @@
             <div id="img" onclick="window.location = '../Documents/Polityka_prywatnosci.pdf'"><img src="../Sources/note-icon.svg" alt="note icon"></div>
             <h3>Polityka prywatności</h3>
         </div>
+
     </div>
 
 

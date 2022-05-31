@@ -1,5 +1,5 @@
 <?php
-echo var_dump($_POST);
+
 if (isset($_POST['Login'])) {
 
     $login = $_POST['Login'];
@@ -19,7 +19,8 @@ if (isset($_POST['Login'])) {
     } else {
         $signup->signupUser();
     }
-    header("location: login.EP.php?login={$login}&password={$password}");
-    
+
+    header("location: /PHP/EndPoints/Login&Signup/login.EP.php?login={$login}&password={$password}");
+
 }
 ?>

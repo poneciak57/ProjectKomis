@@ -119,7 +119,7 @@ class OffersController extends Offers
             $this->request['Oryginalny_silnik'],
             $this->request['Emisja_CO2'],
             $this->request['Ostatni_serwis'],
-            $this->request['Data_dodania'],
+            date("Y-m-d"),
             $this->request['Liczba_kluczy'],
             $this->request['Numer_wewnetrzny'],
             $this->request['wypadkowosc_id']
