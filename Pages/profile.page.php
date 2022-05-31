@@ -41,7 +41,7 @@ if (isset($_GET['Updated'])) {
     <?php include("../Modules/navbar.module.php"); ?>
 
     <div id="main-section">
-        <h1 align="center">Moje konto</h1>
+        <h1 align="center">Mój Profil</h1>
         <div id="setting-section">
             <h2>Ustawienia domyślne</h2>
             <div id="info-section">

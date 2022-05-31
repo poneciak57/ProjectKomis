@@ -1,7 +1,5 @@
 const page_url = document.location.origin;
 function next() {
-
-
     var email = document.getElementById("email").value;
     var haslo = document.getElementById("haslo").value;
     var input = document.getElementById("email");
@@ -10,6 +8,7 @@ function next() {
     var forgor = document.getElementById("form-more_options");
     var wprowadz = document.getElementById("create");
     var utworz = document.getElementById("create");
+
     var przycisk = document.getElementById("przycisk");
     var form_button = document.getElementById("form_button");
 

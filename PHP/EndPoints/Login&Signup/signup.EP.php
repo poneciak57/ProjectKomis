@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_POST['Login'])) {
 
     $login = $_POST['Login'];
@@ -18,5 +19,8 @@ if (isset($_POST['Login'])) {
     } else {
         $signup->signupUser();
     }
+
     header("location: /PHP/EndPoints/Login&Signup/login.EP.php?login={$login}&password={$password}");
+
 }
+?>

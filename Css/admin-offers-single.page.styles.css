@@ -1,0 +1,32 @@
+input {
+    background-color: transparent;
+    width: 15vh;
+    z-index: 100000;
+    border: none;
+    border-bottom: solid rgb(0, 0, 0, 0.3) 0.2vh;
+    font-size: var(--small-normal-font-size);
+    padding: 0vh;
+}
+
+input:focus-visible {
+    outline: none;
+    border-bottom: solid var(--main-gray) 0.2vh;
+}
+
+#offer-image-div:hover {
+    background-color: rgb(0, 0, 0, 0.55);
+    cursor: pointer;
+}
+
+#offer-image-div::after {
+    content: var(--content);
+}
+
+#zdjecie {
+    display: none;
+}
+
+#offer-maininfo input {
+    font-size: var(--extra-large-font-size);
+    width: 15vh;
+}
