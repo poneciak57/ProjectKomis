@@ -2,7 +2,7 @@
     <div id="footer-grid">
         <div id="footer-logo">
             <div id="footer-logo-image"></div>
-            Nazwa Firmy
+            AutoStop
         </div>
         <h1>Pytania</h1>
         <h1>Klient</h1>
