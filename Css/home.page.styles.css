@@ -19,7 +19,6 @@
 
 #home-video {
     height: 100vh;
-    width: 100%;
     background-color: gray;
 }
 
@@ -156,7 +155,7 @@
     overflow: hidden;
 }
 video {
-    height: 115vh;
+    height: 130vh;
     filter: brightness(30%);
     z-index: 0;
 }

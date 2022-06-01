@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="">
-    <title>AutoStop - Strona główna</title>
+    <title>AutoStop - Strona Główna</title>
     <link href="../Css/navbar.module.styles.css" rel="stylesheet">
     <link href="../Css/footer.module.styles.css" rel="stylesheet">
     <link href="../Css/home.page.styles.css" rel="stylesheet">

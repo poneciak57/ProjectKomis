@@ -20,4 +20,12 @@ class Options extends DBh
             $this->error();
         }
     }
+    protected function getOffer($ID)
+    {
+        $stmt = $this->connect()->prepare("SELECT * FROM `samochody` WHERE `ID` = ?;");
+        $this->handleExec($stmt, [$ID]);
+        $fetched = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        $stmt = null;
+        return $fetched;
+    }
 }

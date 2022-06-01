@@ -1,7 +1,7 @@
 <footer>
     <div id="footer-grid">
         <div id="footer-logo">
-            <div id="footer-logo-image"></div>
+            <div id="footer-logo-image"><img src="../Sources/logo.png" style="width: 10vh; padding-right: 5vh;"></div>
             AutoStop
         </div>
         <h1>Pytania</h1>

@@ -1,6 +1,6 @@
 <nav id="navbar">
     <div id="navbar-logo" onclick="window.location = 'home.page.php'">
-        <div id="navbar-logo-image"></div>
+        <div id="navbar-logo-image"><img src="../Sources/logo.png" style="width: 10vh; margin-right: 3vh;"></div>
         Komis Samochodowy<br>AutoStop
     </div>
 

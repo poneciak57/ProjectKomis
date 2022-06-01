@@ -8,8 +8,9 @@ class Option
         private string $name
     ) {
     }
-    public function display(): string
+    public function display($selected): string
     {
+        return $this->value == $selected ? "<option value={$this->value} selected>{$this->name}</option>" :"<option value={$this->value} >{$this->name}</option>";                                 
         return "<option value={$this->value} >{$this->name}</option>";
     }
     public function pack(array &$table) {

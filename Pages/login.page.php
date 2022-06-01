@@ -25,10 +25,8 @@
     <div id="tlo">
         <div class="form" id="Form">
             <div id="form-top">
-                <div id="img">
-
-                </div>
-                <div class="form-name">AutoStop</div>
+                <div id="img"><img src="../Sources/logo.png" style="width: 10vh; margin-right: 3vh; "></div>
+                <h2 class="form-name">AutoStop</h2>
             </div>
             <div id="register">
                 <h1>Zaloguj</h1>

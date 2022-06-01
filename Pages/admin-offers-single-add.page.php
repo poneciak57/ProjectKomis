@@ -143,7 +143,7 @@
                     </tr>
                     <tr>
                         <td colspan="1">Numer wewnętrzny</td>
-                        <td><input type="number" name="Numer_wewnetrzny" value=""></td>
+                        <td><input type="text" name="Numer_wewnetrzny" value=""></td>
                         <td></td>
                         <td></td>
                     </tr>
