@@ -10,7 +10,7 @@ $is_admin = (unserialize($_SESSION["User"])->Privileges == 1);
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="">
-    <title>Nazwa Firmy - Oferty</title>
+    <title>AutoStop - Oferty</title>
     <link href="../Css/navbar.module.styles.css" rel="stylesheet">
     <link href="../Css/footer.module.styles.css" rel="stylesheet">
     <link href="../Css/car-offer.module.styles.css" rel="stylesheet">

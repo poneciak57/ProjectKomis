@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Rejestracja</title>
 
-    <link rel="stylesheet" href="../Css/login.page.styles.css">
+    <link rel="stylesheet" href="../../Css/login.page.styles.css">
 
 </head>
 
@@ -25,9 +25,7 @@
             <form method="POST" onsubmit="return submit1(event)" action="../PHP/EndPoints/Login&Signup/signup.EP.php">
                 <div id="input">
                     <input type="text" name="Login" placeholder="Login" id="email"><br>
-
-                    <input type="password" name="password" id="haslo" placeholder="Hasło" value="">
-
+                    <input type="password" name="haslo" id="haslo" placeholder="Hasło" value="">
 
                 </div>
                 <div class="form-bottom">
@@ -54,11 +52,14 @@
 
                     </div>
                     <div class="form_button" id="form_button">
-                        <button type="button" onclick="next() " class="Dalej">Dalej</button>
+                        <button type="button" onclick="next()" id="przycisk" class="Dalej">Dalej</button>
                     </div>
             </form>
-
             </div>
+
+
+
+        </div>
 
 
 

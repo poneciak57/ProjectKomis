@@ -31,7 +31,7 @@ if (isset($_GET['Updated'])) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>AutoStop - Mój Profil</title>
     <link rel="stylesheet" href="../Css/footer.module.styles.css">
     <link rel="stylesheet" href="../Css/navbar.module.styles.css">
     <link rel="stylesheet" href="../Css/profile.module.styles.css">
