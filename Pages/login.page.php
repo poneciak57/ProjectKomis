@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <title>Logowanie</title>
 
-    <link rel="stylesheet" href="../Css/login.page.styles.css">
+    <link rel="stylesheet" href="../../Css/style2.css">
     <style>
         .form-more_options a {
             color: #117FBD;
             text-decoration: none;
-            font-size: var(--small-font-size);
+            font-size: var(--normal-font-size);
+            font-weight: 100;
         }
         
         #haslo {
@@ -24,8 +25,10 @@
     <div id="tlo">
         <div class="form" id="Form">
             <div id="form-top">
-                <div id="img"></div>
-                <h2 class="form-name">AutoStop</h2>
+                <div id="img">
+
+                </div>
+                <div class="form-name">AutoStop</div>
             </div>
             <div id="register">
                 <h1>Zaloguj</h1>
@@ -43,6 +46,7 @@
                     </div>
                     <div class="form_button" id="form_button">
                         <button type="button" onclick="next()" id="przycisk" class="Dalej">Dalej</button>
+
                     </div>
             </form>
             </div>

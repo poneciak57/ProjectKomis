@@ -4,10 +4,10 @@
     font-size: var( --small-font-size);
 }
 
-#img {
-    width: 5vh;
-    height: 5vh;
+#img > img {
     margin-right: 1vh;
+    width: 4vh;
+    height: auto;
 }
 
 .form-name {
@@ -55,7 +55,7 @@ body {
     background-color: #F1FAEE;
     color: rgb(0, 0, 0, 0.7);
     width: 53vh;
-    height: 35vh;
+    height: 40vh;
     z-index: 1;
     padding-left: 7vh;
     padding-right: 7vh;
@@ -113,7 +113,7 @@ select {
     border: none;
     box-shadow: 0.1vh 0.1vh 0.1vh black;
     margin-right: 2vh;
-    margin-top: 2vh;
+    margin-top: 2.9vh;
 }
 
 #przycisk:hover {
@@ -124,6 +124,7 @@ select {
     display: flex;
     align-items: center;
     width: 50vh;
+    margin-top: 4vh;
 }
 
 .form-bottom {
@@ -134,11 +135,12 @@ select {
 }
 
 .form-more_options {
-    font-size: var(--small-font-size);
+    font-size: var(--normal-font-size);
     display: flex;
     align-items: flex-start;
-    flex-direction: column;
-    margin: 0vh;
+    flex-direction: row;
+    margin-top: 2vh;
+    font-weight: 100;
 }
 
 .privacy_policy {
@@ -159,6 +161,11 @@ select {
     align-items: center;
     font-weight: bold;
     font-size: var(--normal-font-size);
+    
+}
+
+.privacy_policy:hover {
+    filter: brightness(90%);
     cursor: pointer;
 }
 
@@ -265,12 +272,11 @@ input[type="checkbox"] {
     color: currentColor;
     width: 2vh;
     height: 2vh;
-    border: 0.1vh solid currentColor;
+    border: 0.3vh solid currentColor;
     border-radius: 0.5vh;
     transform: translateY(-0.15vh);
     display: grid;
     place-content: center;
-    margin-right: 1vh;
 }
 
 input[type="checkbox"]::before {
