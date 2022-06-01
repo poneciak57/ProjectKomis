@@ -14,8 +14,7 @@
     <div id="tlo">
         <div class="form" id="Form">
             <div id="form-top">
-                <div id="img">
-
+                <div id="img"><img src="../Sources/logo.png" style="width: 10vh;margin-right: 3vh; ">
                 </div>
                 <div class="form-name">AutoStop</div>
             </div>

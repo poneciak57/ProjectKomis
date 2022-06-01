@@ -1,7 +1,7 @@
 <?php
 
 require_once "../../Functions/logout-check.func.php";
-require_once "/ProjectKomis/PHP/Classes/Structs/user.struct.php";
+require_once "../../Classes/Structs/user.struct.php";
 require_once "../../Classes/offers.controller.php";
 
 if (!isset($_GET['ID'])) {

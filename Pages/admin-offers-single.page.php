@@ -17,7 +17,7 @@ $OC = new OffersController($_GET);
 $offer = $OC->getSingle();
 
 require_once  "../PHP/Classes/form-options.controller.php";
-$OptC = new OptionsController();
+$OptC = new OptionsController(offerID: $_GET['ID']);
 
 
 ?>
@@ -40,7 +40,7 @@ $OptC = new OptionsController();
     <?php include "../Modules/navbar.module.php"; ?>
 
     <script src="../JS/offers-single.js"></script>
-    <form action="../PHP/EndPoints/Data/offer-update.EP.php?<?php echo $_GET['ID'] ?>" method="post">
+    <form action="../PHP/EndPoints/Data/offer-update.EP.php?ID=<?php echo $_GET['ID'] ?>" method="post">
         <div id="offer-main-div">
 
             <div id="offer-image-div" onclick="document.getElementById('zdjecie').click();">
@@ -48,7 +48,7 @@ $OptC = new OptionsController();
             </div>
             <div id="offer-maininfo">
                 <div id="offer-maininfo-title">
-                    Marka&nbsp;<select name="marka" id="offers-filters-marka"><?php $OptC->Brands(); ?></select>&nbsp;&nbsp;&nbsp;Model&nbsp;<input type="text" name="model">
+                    Marka&nbsp;<select name="marka" id="offers-filters-marka"></select>&nbsp;&nbsp;&nbsp;Model&nbsp;<select name="model_id"><?php $OptC->Brands(); ?></select>
                 </div>
                 <div id="offer-maininfo-price">
                     <div id="offer-maininfo-price-text">
@@ -149,9 +149,8 @@ $OptC = new OptionsController();
                     <tr>
                         <td colspan="1">Liczba kluczy</td>
                         <td><input type="number" name="Liczba_kluczy" value="<?php echo $offer['Liczba_kluczy'] ?>"></td>
-
-                        <td></td>
-                        <td></td>
+                        <td>Wypadkowość</td>
+                        <td><select name="wypadkowosc_id"><?php $OptC->Crashes(); ?></select></td>
                     </tr>
                 </table>
 
@@ -161,7 +160,7 @@ $OptC = new OptionsController();
                     </tr>
                     <tr>
                         <td colspan="1">Numer wewnętrzny</td>
-                        <td><input type="number" name="Numer_wewnetrzny" value="<?php echo $offer['Numer_wewnetrzny'] ?>"></td>
+                        <td><input type="text" name="Numer_wewnetrzny" value="<?php echo $offer['Numer_wewnetrzny'] ?>"></td>
 
                         <td></td>
                         <td></td>
